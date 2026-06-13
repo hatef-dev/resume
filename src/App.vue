@@ -20,21 +20,37 @@
         <div v-for="(section, i) in sections" :key="i">
           <!-- HEADER -->
           <div v-if="section.type === 'header'">
-            <h1 class="text-4xl font-bold">
+            <h1 class="font-semibold leading-[0.94] tracking-[-0.036em] text-4xl padding-indicator">
               {{ section.title }}
             </h1>
 
-            <p class="text-lg text-gray-600 mt-1">
+            <p
+              class="font-semibold mt-4 uppercase tracking-[0.2em] text-green-800 padding-indicator"
+            >
               {{ section.role }}
             </p>
 
             <div class="flex gap-4 mt-2 text-sm text-gray-700">
               <span>{{ section.contacts.address }}</span>
-              <a :href="`mailto:${section.contacts.email}`">
+              <a class="underline" :href="`mailto:${section.contacts.email}`">
                 {{ section.contacts.email }}
               </a>
-              <a :href="section.contacts.linkedin" target="_blank"> LinkedIn </a>
-              <a :href="section.contacts.github" target="_blank"> GitHub </a>
+              <a
+                class="underline"
+                :href="section.contacts.linkedin"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                LinkedIn
+              </a>
+              <a
+                class="underline"
+                :href="section.contacts.github"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub
+              </a>
             </div>
           </div>
 
@@ -63,7 +79,12 @@ export default {
   components: { Container: AppContainer },
   data() {
     return {
-      markdownSource: "",
+      markdownSource: `# Alex Morgan
+Senior Full Stack Engineer
+address: San Francisco, CA | email: alex@example.com | linkedin: linkedin.com/in/alexmorgan | github: github.com/alexmorgan
+
+## Summary
+Product-minded engineer...`,
     };
   },
   computed: {
@@ -129,6 +150,9 @@ export default {
             if (normalizedKey in current.contacts) {
               current.contacts[normalizedKey] = value;
             }
+            if (normalizedKey === "linkedin" || normalizedKey === "github") {
+              current.contacts[normalizedKey] = this.normalizeUrl(value);
+            }
           }
 
           continue;
@@ -137,12 +161,22 @@ export default {
         // SECTION CONTENT
         if (current) {
           current.content.push(line);
+          console.log(line);
         }
       }
 
       if (current) result.push(current);
       console.log(result);
       return result;
+    },
+  },
+  methods: {
+    normalizeUrl(url) {
+      if (!url) return "";
+
+      if (url.startsWith("http")) return url;
+
+      return `https://${url}`;
     },
   },
 };
