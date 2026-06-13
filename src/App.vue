@@ -32,11 +32,11 @@
 
             <div class="flex gap-4 mt-2 text-sm text-gray-700">
               <span>{{ section.contacts.address }}</span>
-              <a class="underline" :href="`mailto:${section.contacts.email}`">
+              <a class="underline text-green-800" :href="`mailto:${section.contacts.email}`">
                 {{ section.contacts.email }}
               </a>
               <a
-                class="underline"
+                class="underline text-green-800"
                 :href="section.contacts.linkedin"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -44,7 +44,7 @@
                 LinkedIn
               </a>
               <a
-                class="underline"
+                class="underline text-green-800"
                 :href="section.contacts.github"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -55,16 +55,14 @@
           </div>
 
           <!-- SECTION -->
-          <div v-else class="mt-8">
-            <h2 class="text-xl font-semibold mb-2">
+          <div v-else class="mt-3">
+            <h2
+              class="shrink-0 font-semibold uppercase tracking-[0.22em] padding-indicator text-green-800 text-xs"
+            >
               {{ section.title }}
             </h2>
 
-            <ul class="list-disc pl-5 space-y-1">
-              <li v-for="(item, idx) in section.content" :key="idx">
-                {{ item }}
-              </li>
-            </ul>
+            <p>{{ section.content.join("\n") }}</p>
           </div>
         </div>
       </aside>
@@ -84,7 +82,15 @@ Senior Full Stack Engineer
 address: San Francisco, CA | email: alex@example.com | linkedin: linkedin.com/in/alexmorgan | github: github.com/alexmorgan
 
 ## Summary
-Product-minded engineer...`,
+Product-minded engineer...
+
+## Experience
+### Senior Full Stack Engineer | Helio
+*Remote | 2022 - Present*
+- Built the company's first end-to-end product surface...
+- Designed a durable frontend platform...
+- Partnered directly with design...
+`,
     };
   },
   computed: {
@@ -127,6 +133,49 @@ Product-minded engineer...`,
             title: line.replace(/^##\s+/, ""),
             content: [],
           };
+
+          continue;
+        }
+
+        // Experience
+        if (line.startsWith("### ")) {
+          const rawTitle = line.replace(/^###\s+/, "");
+
+          const [title, company] = rawTitle.split("|").map((item) => item.trim());
+
+          current.items ??= [];
+
+          current.items.push({
+            type: "experience",
+            title,
+            company,
+            location: "",
+            period: "",
+            highlights: [],
+          });
+
+          continue;
+        }
+
+        if (line.startsWith("*") && line.endsWith("*") && current?.items?.length) {
+          const metadata = line.slice(1, -1);
+
+          const [location, period] = metadata.split("|").map((item) => item.trim());
+
+          const item = current.items.at(-1);
+
+          item.location = location;
+          item.period = period;
+
+          continue;
+        }
+
+        if (line.startsWith("- ") && current?.items?.length > 0) {
+          const lastExperience = current.items.at(-1);
+
+          if (lastExperience?.type === "experience") {
+            lastExperience.highlights.push(line.substring(2));
+          }
 
           continue;
         }
