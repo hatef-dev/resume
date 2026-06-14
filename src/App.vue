@@ -55,21 +55,32 @@
           </div>
 
           <!-- SECTION -->
-          <div v-if="section.type === 'section'" class="mt-4">
-            <h2
-              class="shrink-0 font-semibold uppercase tracking-[0.22em] padding-indicator text-green-800 text-xs"
-            >
-              {{ section.title }}
-            </h2>
+          <div v-if="section.type === 'section'" class="my-2">
+            <div class="flex gap-x-2 items-center mb-2">
+              <h2
+                class="shrink-0 font-semibold uppercase tracking-[0.22em] padding-indicator text-green-800 text-xs"
+              >
+                {{ section.title }}
+              </h2>
 
-            <p>{{ section.content.join("\n") }}</p>
+              <div class="w-full h-0.5 bg-gray-600/15 rounded-full"></div>
+            </div>
+
+            <p v-if="section.content.length">{{ section.content.join("\n") }}</p>
           </div>
 
           <!-- EXPERIENCE -->
-          <div class="flex flex-col gap-y-2">
+          <div
+            v-if="
+              section.title === 'Experience' ||
+              section.title === 'Selected Projects' ||
+              section.title === 'Education'
+            "
+            class="flex flex-col gap-y-2"
+          >
             <div v-for="(item, i) in section.items" :key="i" class="">
               <div>
-                <div class="flex items-center justify-between mt-1">
+                <div class="flex items-center justify-between mb-2">
                   <div class="flex gap-x-2 items-center">
                     <h3 class="font-semibold text-sm">{{ item.title }}</h3>
                     <span class="w-1 h-1 rounded-full bg-green-800"></span>
@@ -91,6 +102,21 @@
                     {{ point }}
                   </li>
                 </ul>
+              </div>
+            </div>
+          </div>
+
+          <div v-if="section.title === 'Skills'" class="">
+            <div class="space-y-2">
+              <div
+                v-for="(skills, category, i) in section.skills"
+                :key="i"
+                class="flex flex-wrap gap-2"
+              >
+                <span class="font-semibold text-sm text-slate-800">{{ category }}:</span>
+                <span v-for="(skill, j) in skills" :key="j" class="text-sm text-gray-700">
+                  {{ skill }}{{ j < skills.length - 1 ? "," : "" }}
+                </span>
               </div>
             </div>
           </div>
@@ -120,6 +146,26 @@ Product-minded engineer with a track record of shipping customer-facing software
 - Built the company's first end-to-end product surface...
 - Designed a durable frontend platform...
 - Partnered directly with design...
+
+### Senior Full Stack Engineer | Helio
+*Remote | 2022 - Present*
+- Built the company's first end-to-end product surface...
+- Designed a durable frontend platform...
+- Partnered directly with design...
+
+
+## Selected Projects
+### Tiny CV | React, Next.js, TypeScript
+- Built a markdown-first resume editor with a live one-page preview and print-ready output.
+
+## Education
+### University of Michigan | B.S. in Computer Science
+*2015 - 2019*
+
+## Skills
+Languages: TypeScript, JavaScript, Python, SQL
+Frameworks: React, Next.js, Node.js, Tailwind CSS
+Platforms: Vercel, AWS, Postgres, GitHub Actions
 `,
     };
   },
@@ -162,6 +208,8 @@ Product-minded engineer with a track record of shipping customer-facing software
             type: "section",
             title: line.replace(/^##\s+/, ""),
             content: [],
+            items: [],
+            skills: {},
           };
 
           continue;
@@ -187,6 +235,7 @@ Product-minded engineer with a track record of shipping customer-facing software
           continue;
         }
 
+        // Time and location
         if (line.startsWith("*") && line.endsWith("*") && current?.items?.length) {
           const metadata = line.slice(1, -1).trim();
 
@@ -205,6 +254,7 @@ Product-minded engineer with a track record of shipping customer-facing software
           continue;
         }
 
+        // Highlights
         if (line.startsWith("- ") && current?.items?.length > 0) {
           const lastExperience = current.items.at(-1);
 
@@ -214,8 +264,7 @@ Product-minded engineer with a track record of shipping customer-facing software
 
           continue;
         }
-
-        // HEADER CONTENT PARSING (key: value)
+        // HEADER CONTENT
         if (current?.type === "header") {
           if (!current.role) {
             current.role = line;
@@ -231,21 +280,28 @@ Product-minded engineer with a track record of shipping customer-facing software
 
             const normalizedKey = key.toLowerCase();
 
-            if (normalizedKey in current.contacts) {
-              current.contacts[normalizedKey] = value;
-            }
             if (normalizedKey === "linkedin" || normalizedKey === "github") {
               current.contacts[normalizedKey] = this.normalizeUrl(value);
+            } else if (normalizedKey in current.contacts) {
+              current.contacts[normalizedKey] = value;
             }
           }
 
           continue;
         }
+        // Skills
+        // Skills
+        if (current?.type === "section" && current.title === "Skills" && line.includes(":")) {
+          const [key, value] = line.split(":").map((item) => item.trim());
+
+          current.skills[key] = value.split(",").map((item) => item.trim());
+
+          continue;
+        }
 
         // SECTION CONTENT
-        if (current) {
+        if (current?.type === "section") {
           current.content.push(line);
-          console.log(line);
         }
       }
 
