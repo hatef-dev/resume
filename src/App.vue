@@ -16,7 +16,7 @@
           ></textarea>
         </div>
       </aside>
-      <aside class="col-span-2 bg-white p-10 rounded-xl">
+      <aside class="col-span-2 bg-white p-10 rounded-xl overflow-auto">
         <div v-for="(section, i) in sections" :key="i">
           <!-- HEADER -->
           <div v-if="section.type === 'header'">
@@ -55,7 +55,7 @@
           </div>
 
           <!-- SECTION -->
-          <div v-if="section.type === 'section'" class="mt-3">
+          <div v-if="section.type === 'section'" class="mt-4">
             <h2
               class="shrink-0 font-semibold uppercase tracking-[0.22em] padding-indicator text-green-800 text-xs"
             >
@@ -66,19 +66,31 @@
           </div>
 
           <!-- EXPERIENCE -->
-          <div v-if="section.title === 'Experience'" class="">
-            <div v-for="(item, i) in section.items" :key="i">
-              <div class="flex items-center justify-between">
-                <div class="flex gap-x-2 items-center">
-                  <h3 class="font-semibold text-sm">{{ item.title }}</h3>
-                  <span class="w-1 h-1 rounded-full bg-green-800"></span>
-                  <p>{{ item.company }}</p>
+          <div class="flex flex-col gap-y-2">
+            <div v-for="(item, i) in section.items" :key="i" class="">
+              <div>
+                <div class="flex items-center justify-between mt-1">
+                  <div class="flex gap-x-2 items-center">
+                    <h3 class="font-semibold text-sm">{{ item.title }}</h3>
+                    <span class="w-1 h-1 rounded-full bg-green-800"></span>
+                    <p class="text-[14px] text-[#475569]">{{ item.company }}</p>
+                  </div>
+                  <p
+                    v-if="item.period"
+                    class="shrink-0 text-green-800/80 text-right font-semibold uppercase tracking-[0.11em] text-xs"
+                  >
+                    {{ item.period }}
+                  </p>
                 </div>
-                <p
-                  class="shrink-0 text-green-800/80 text-right font-semibold uppercase tracking-[0.11em] text-xs"
+                <span class="text-sm py-2 text-gray-700 italic">{{ item.location }}</span>
+
+                <ul
+                  class="space-y-1.5 pl-5 list-outside list-disc text-black text-sm leading-relaxed font-semibold"
                 >
-                  {{ item.period }}
-                </p>
+                  <li v-for="(point, j) in item.highlights" :key="j" class="pl-1 font-normal">
+                    {{ point }}
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
