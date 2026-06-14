@@ -188,14 +188,19 @@ Product-minded engineer with a track record of shipping customer-facing software
         }
 
         if (line.startsWith("*") && line.endsWith("*") && current?.items?.length) {
-          const metadata = line.slice(1, -1);
-
-          const [location, period] = metadata.split("|").map((item) => item.trim());
+          const metadata = line.slice(1, -1).trim();
 
           const item = current.items.at(-1);
 
-          item.location = location;
-          item.period = period;
+          const parts = metadata.split("|").map((part) => part.trim());
+
+          if (parts.length === 2) {
+            item.location = parts[0];
+            item.period = parts[1];
+          } else {
+            item.location = "";
+            item.period = parts[0];
+          }
 
           continue;
         }
