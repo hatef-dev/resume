@@ -55,7 +55,7 @@
           </div>
 
           <!-- SECTION -->
-          <div v-else class="mt-3">
+          <div v-if="section.type === 'section'" class="mt-3">
             <h2
               class="shrink-0 font-semibold uppercase tracking-[0.22em] padding-indicator text-green-800 text-xs"
             >
@@ -63,6 +63,24 @@
             </h2>
 
             <p>{{ section.content.join("\n") }}</p>
+          </div>
+
+          <!-- EXPERIENCE -->
+          <div v-if="section.title === 'Experience'" class="">
+            <div v-for="(item, i) in section.items" :key="i">
+              <div class="flex items-center justify-between">
+                <div class="flex gap-x-2 items-center">
+                  <h3 class="font-semibold text-sm">{{ item.title }}</h3>
+                  <span class="w-1 h-1 rounded-full bg-green-800"></span>
+                  <p>{{ item.company }}</p>
+                </div>
+                <p
+                  class="shrink-0 text-green-800/80 text-right font-semibold uppercase tracking-[0.11em] text-xs"
+                >
+                  {{ item.period }}
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </aside>
@@ -82,7 +100,7 @@ Senior Full Stack Engineer
 address: San Francisco, CA | email: alex@example.com | linkedin: linkedin.com/in/alexmorgan | github: github.com/alexmorgan
 
 ## Summary
-Product-minded engineer...
+Product-minded engineer with a track record of shipping customer-facing software quickly, building internal leverage, and turning ambiguous ideas into reliable systems. Strong in frontend architecture, developer experience, and cross-functional execution.
 
 ## Experience
 ### Senior Full Stack Engineer | Helio
