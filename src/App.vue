@@ -133,8 +133,8 @@ export default {
   components: { Container: AppContainer },
   data() {
     return {
-      markdownSource: `# Alex Morgan
-Senior Full Stack Engineer
+      markdownSource: `# Hatef Sanati
+Full Stack Developer
 address: San Francisco, CA | email: alex@example.com | linkedin: linkedin.com/in/alexmorgan | github: github.com/alexmorgan
 
 ## Summary
@@ -155,7 +155,7 @@ Product-minded engineer with a track record of shipping customer-facing software
 
 
 ## Selected Projects
-### Tiny CV | React, Next.js, TypeScript
+### Resume Builder | React, Next.js, TypeScript
 - Built a markdown-first resume editor with a live one-page preview and print-ready output.
 
 ## Education
