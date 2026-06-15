@@ -164,7 +164,7 @@ Product-minded engineer with a track record of shipping customer-facing software
 
 ## Skills
 Languages: TypeScript, JavaScript, Python, SQL
-Frameworks: React, Next.js, Node.js, Tailwind CSS
+Frameworks: Vue, Nuxt.js, Node.js, Tailwind CSS
 Platforms: Vercel, AWS, Postgres, GitHub Actions
 `,
     };
