@@ -67,7 +67,7 @@
                   {{ section.title }}
                 </h2>
 
-                <div class="w-full h-0.5 rounded-full"></div>
+                <div style="" class="w-full h-1 rounded-full bg-green-800/15"></div>
               </div>
 
               <p v-if="section.content.length">{{ section.content.join("\n") }}</p>
@@ -92,7 +92,7 @@
                     </div>
                     <p
                       v-if="item.period"
-                      class="shrink-0 resumeColor/80 text-right font-semibold uppercase tracking-[0.11em] text-xs"
+                      class="shrink-0 resumeColor/80 text-right font-semibold text-green-800 uppercase tracking-[0.11em] text-xs"
                     >
                       {{ item.period }}
                     </p>
@@ -133,7 +133,8 @@
 
 <script>
 import AppContainer from "./components/Container.vue";
-import html2pdf from "html2pdf.js";
+import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
 export default {
   components: { Container: AppContainer },
   data() {
@@ -318,18 +319,48 @@ Platforms: Vercel, AWS, Postgres, GitHub Actions
   methods: {
     downloadPDF() {
       const element = document.getElementById("resume-preview");
-      const options = {
-        margin: [15, 15, 15, 15], // حاشیه سفید دور صفحه
-        filename: "my-resume.pdf",
-        image: { type: "jpeg", quality: 0.98 },
-        html2canvas: {
-          scale: 2, // بالا بردن رزولوشن برای متن‌های خوانا
-          useCORS: true,
-          letterRendering: true,
-        },
-        jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
-      };
-      html2pdf().set(options).from(element).save();
+      const printWindow = window.open("", "_blank");
+
+      // کپی کردن همه استایل‌های صفحه
+      const styles = Array.from(document.styleSheets)
+        .map((sheet) => {
+          try {
+            return Array.from(sheet.cssRules)
+              .map((rule) => rule.cssText)
+              .join("\n");
+          } catch (e) {
+            return "";
+          }
+        })
+        .join("\n");
+
+      printWindow.document.write(`
+      <!DOCTYPE html>
+      <html>
+        <head>
+          <meta charset="utf-8" />
+          <style>${styles}</style>
+          <style>
+            @media print {
+              @page { margin: 0; }
+              body { margin: 0; }
+            }
+          </style>
+        </head>
+        <body>
+          ${element.outerHTML}
+        </body>
+      </html>
+    `);
+
+      printWindow.document.close();
+      printWindow.focus();
+
+      // کمی صبر می‌کنیم تا استایل‌ها لود بشن
+      setTimeout(() => {
+        printWindow.print();
+        printWindow.close();
+      }, 500);
     },
     normalizeUrl(url) {
       if (!url) return "";
@@ -342,6 +373,28 @@ Platforms: Vercel, AWS, Postgres, GitHub Actions
 };
 </script>
 
+<style>
+/* فقط resume رو چاپ کن، بقیه رو مخفی کن */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #resume-preview,
+  #resume-preview * {
+    visibility: visible;
+  }
+  #resume-preview {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+  .no-print {
+    display: none !important;
+  }
+}
+</style>
+
 <style scoped>
 .resumeColor {
   color: #016630 !important;
@@ -352,9 +405,13 @@ Platforms: Vercel, AWS, Postgres, GitHub Actions
 .resumeBackGround {
   background-color: #016630 !important;
 }
-
-.break-inside-avoid {
-  page-break-inside: avoid;
-  break-inside: avoid;
+.flex {
+  display: flex !important;
+}
+.items-center {
+  align-items: center !important;
+}
+.justify-between {
+  justify-content: space-between !important;
 }
 </style>
