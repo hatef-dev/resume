@@ -16,107 +16,112 @@
           ></textarea>
         </div>
       </aside>
-      <aside class="col-span-2 bg-white p-10 rounded-xl overflow-auto">
-        <div v-for="(section, i) in sections" :key="i">
-          <!-- HEADER -->
-          <div v-if="section.type === 'header'">
-            <h1 class="font-semibold leading-[0.94] tracking-[-0.036em] text-4xl padding-indicator">
-              {{ section.title }}
-            </h1>
-
-            <p
-              class="font-semibold mt-4 uppercase tracking-[0.2em] text-green-800 padding-indicator"
-            >
-              {{ section.role }}
-            </p>
-
-            <div class="flex gap-4 mt-2 text-sm text-gray-700">
-              <span>{{ section.contacts.address }}</span>
-              <a class="underline text-green-800" :href="`mailto:${section.contacts.email}`">
-                {{ section.contacts.email }}
-              </a>
-              <a
-                class="underline text-green-800"
-                :href="section.contacts.linkedin"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                LinkedIn
-              </a>
-              <a
-                class="underline text-green-800"
-                :href="section.contacts.github"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                GitHub
-              </a>
-            </div>
-          </div>
-
-          <!-- SECTION -->
-          <div v-if="section.type === 'section'" class="my-2">
-            <div class="flex gap-x-2 items-center mb-2">
-              <h2
-                class="shrink-0 font-semibold uppercase tracking-[0.22em] padding-indicator text-green-800 text-xs"
+      <aside class="col-span-2">
+        <button @click="downloadPDF">Download PDF</button>
+        <div id="resume-preview" ref="preview" class="bg-white p-10 rounded-xl">
+          <div v-for="(section, i) in sections" :key="i">
+            <!-- HEADER -->
+            <div v-if="section.type === 'header'">
+              <h1
+                class="font-semibold leading-[0.94] tracking-[-0.036em] text-4xl padding-indicator"
               >
                 {{ section.title }}
-              </h2>
+              </h1>
 
-              <div class="w-full h-0.5 bg-gray-600/15 rounded-full"></div>
-            </div>
+              <p
+                class="font-semibold mt-4 uppercase tracking-[0.2em] resumeColor padding-indicator"
+              >
+                {{ section.role }}
+              </p>
 
-            <p v-if="section.content.length">{{ section.content.join("\n") }}</p>
-          </div>
-
-          <!-- EXPERIENCE -->
-          <div
-            v-if="
-              section.title === 'Experience' ||
-              section.title === 'Selected Projects' ||
-              section.title === 'Education'
-            "
-            class="flex flex-col gap-y-2"
-          >
-            <div v-for="(item, i) in section.items" :key="i" class="">
-              <div>
-                <div class="flex items-center justify-between mb-2">
-                  <div class="flex gap-x-2 items-center">
-                    <h3 class="font-semibold text-sm">{{ item.title }}</h3>
-                    <span class="w-1 h-1 rounded-full bg-green-800"></span>
-                    <p class="text-[14px] text-[#475569]">{{ item.company }}</p>
-                  </div>
-                  <p
-                    v-if="item.period"
-                    class="shrink-0 text-green-800/80 text-right font-semibold uppercase tracking-[0.11em] text-xs"
-                  >
-                    {{ item.period }}
-                  </p>
-                </div>
-                <span class="text-sm py-2 text-gray-700 italic">{{ item.location }}</span>
-
-                <ul
-                  class="space-y-1.5 pl-5 list-outside list-disc text-black text-sm leading-relaxed font-semibold"
+              <div class="flex gap-4 mt-2 text-sm resumeGrayText">
+                <span>{{ section.contacts.address }}</span>
+                <a class="underline resumeColor" :href="`mailto:${section.contacts.email}`">
+                  {{ section.contacts.email }}
+                </a>
+                <a
+                  class="underline resumeColor"
+                  :href="section.contacts.linkedin"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  <li v-for="(point, j) in item.highlights" :key="j" class="pl-1 font-normal">
-                    {{ point }}
-                  </li>
-                </ul>
+                  LinkedIn
+                </a>
+                <a
+                  class="underline resumeColor"
+                  :href="section.contacts.github"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  GitHub
+                </a>
               </div>
             </div>
-          </div>
 
-          <div v-if="section.title === 'Skills'" class="">
-            <div class="space-y-2">
-              <div
-                v-for="(skills, category, i) in section.skills"
-                :key="i"
-                class="flex flex-wrap gap-2"
-              >
-                <span class="font-semibold text-sm text-slate-800">{{ category }}:</span>
-                <span v-for="(skill, j) in skills" :key="j" class="text-sm text-gray-700">
-                  {{ skill }}{{ j < skills.length - 1 ? "," : "" }}
-                </span>
+            <!-- SECTION -->
+            <div v-if="section.type === 'section'" class="my-2">
+              <div class="flex gap-x-2 items-center mb-2">
+                <h2
+                  class="shrink-0 font-semibold uppercase tracking-[0.22em] padding-indicator resumeColor text-xs"
+                >
+                  {{ section.title }}
+                </h2>
+
+                <div class="w-full h-0.5 rounded-full"></div>
+              </div>
+
+              <p v-if="section.content.length">{{ section.content.join("\n") }}</p>
+            </div>
+
+            <!-- EXPERIENCE -->
+            <div
+              v-if="
+                section.title === 'Experience' ||
+                section.title === 'Selected Projects' ||
+                section.title === 'Education'
+              "
+              class="flex flex-col gap-y-2"
+            >
+              <div v-for="(item, i) in section.items" :key="i" class="">
+                <div>
+                  <div class="flex items-center justify-between mb-2">
+                    <div class="flex gap-x-2 items-center">
+                      <h3 class="font-semibold text-sm">{{ item.title }}</h3>
+                      <span class="w-1 h-1 rounded-full resumeBackGround"></span>
+                      <p class="text-[14px]">{{ item.company }}</p>
+                    </div>
+                    <p
+                      v-if="item.period"
+                      class="shrink-0 resumeColor/80 text-right font-semibold uppercase tracking-[0.11em] text-xs"
+                    >
+                      {{ item.period }}
+                    </p>
+                  </div>
+                  <span class="text-sm py-2 resumeGrayText italic">{{ item.location }}</span>
+
+                  <ul
+                    class="space-y-1.5 pl-5 list-outside list-disc text-sm leading-relaxed font-semibold"
+                  >
+                    <li v-for="(point, j) in item.highlights" :key="j" class="pl-1 font-normal">
+                      {{ point }}
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div v-if="section.title === 'Skills'" class="">
+              <div class="space-y-2">
+                <div
+                  v-for="(skills, category, i) in section.skills"
+                  :key="i"
+                  class="flex flex-wrap gap-2"
+                >
+                  <span class="font-semibold text-sm">{{ category }}:</span>
+                  <span v-for="(skill, j) in skills" :key="j" class="text-sm resumeGrayText">
+                    {{ skill }}{{ j < skills.length - 1 ? "," : "" }}
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -128,7 +133,7 @@
 
 <script>
 import AppContainer from "./components/Container.vue";
-
+import html2pdf from "html2pdf.js";
 export default {
   components: { Container: AppContainer },
   data() {
@@ -311,6 +316,21 @@ Platforms: Vercel, AWS, Postgres, GitHub Actions
     },
   },
   methods: {
+    downloadPDF() {
+      const element = document.getElementById("resume-preview");
+      const options = {
+        margin: [15, 15, 15, 15], // حاشیه سفید دور صفحه
+        filename: "my-resume.pdf",
+        image: { type: "jpeg", quality: 0.98 },
+        html2canvas: {
+          scale: 2, // بالا بردن رزولوشن برای متن‌های خوانا
+          useCORS: true,
+          letterRendering: true,
+        },
+        jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
+      };
+      html2pdf().set(options).from(element).save();
+    },
     normalizeUrl(url) {
       if (!url) return "";
 
@@ -321,3 +341,20 @@ Platforms: Vercel, AWS, Postgres, GitHub Actions
   },
 };
 </script>
+
+<style scoped>
+.resumeColor {
+  color: #016630 !important;
+}
+.resumeGrayText {
+  color: #475569 !important;
+}
+.resumeBackGround {
+  background-color: #016630 !important;
+}
+
+.break-inside-avoid {
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+</style>
