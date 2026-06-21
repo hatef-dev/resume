@@ -60,7 +60,7 @@
 
             <!-- SECTION -->
             <div v-if="section.type === 'section'" class="my-2">
-              <div class="flex gap-x-2 items-center mb-2">
+              <div class="flex items-center mb-2">
                 <h2
                   class="shrink-0 font-semibold uppercase tracking-[0.22em] padding-indicator resumeColor text-xs"
                 >
