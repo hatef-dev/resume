@@ -60,14 +60,14 @@
 
             <!-- SECTION -->
             <div v-if="section.type === 'section'" class="my-2">
-              <div class="flex items-center mb-2">
+              <div class="flex items-center mb-2 gap-x-2">
                 <h2
                   class="shrink-0 font-semibold uppercase tracking-[0.22em] padding-indicator resumeColor text-xs"
                 >
                   {{ section.title }}
                 </h2>
 
-                <div style="" class="w-full h-1 rounded-full bg-green-800/15"></div>
+                <div style="" class="w-full h-0.5 border-t-2 border-green-800/40"></div>
               </div>
 
               <p v-if="section.content.length">{{ section.content.join("\n") }}</p>
@@ -133,15 +133,14 @@
 
 <script>
 import AppContainer from "./components/Container.vue";
-import html2canvas from "html2canvas";
-import jsPDF from "jspdf";
+
 export default {
   components: { Container: AppContainer },
   data() {
     return {
       markdownSource: `# Hatef Sanati
 Full Stack Developer
-address: San Francisco, CA | email: alex@example.com | linkedin: linkedin.com/in/alexmorgan | github: github.com/alexmorgan
+address: San Francisco, CA | email: hatef.sanati@example.com | linkedin: linkedin.com/in/hatef-sanati | github: github.com/hatef-dev
 
 ## Summary
 Product-minded engineer with a track record of shipping customer-facing software quickly, building internal leverage, and turning ambiguous ideas into reliable systems. Strong in frontend architecture, developer experience, and cross-functional execution.
@@ -321,7 +320,6 @@ Platforms: Vercel, AWS, Postgres, GitHub Actions
       const element = document.getElementById("resume-preview");
       const printWindow = window.open("", "_blank");
 
-      // کپی کردن همه استایل‌های صفحه
       const styles = Array.from(document.styleSheets)
         .map((sheet) => {
           try {
@@ -356,7 +354,6 @@ Platforms: Vercel, AWS, Postgres, GitHub Actions
       printWindow.document.close();
       printWindow.focus();
 
-      // کمی صبر می‌کنیم تا استایل‌ها لود بشن
       setTimeout(() => {
         printWindow.print();
         printWindow.close();
@@ -374,7 +371,6 @@ Platforms: Vercel, AWS, Postgres, GitHub Actions
 </script>
 
 <style>
-/* فقط resume رو چاپ کن، بقیه رو مخفی کن */
 @media print {
   body * {
     visibility: hidden;
