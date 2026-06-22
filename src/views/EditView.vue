@@ -132,10 +132,8 @@
 </template>
 
 <script>
-import AppContainer from "./components/Container.vue";
-
 export default {
-  components: { Container: AppContainer },
+  name: "EditView",
   data() {
     return {
       markdownSource: `# Hatef Sanati
