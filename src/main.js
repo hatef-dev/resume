@@ -5,11 +5,13 @@ import { createPinia } from "pinia";
 
 import App from "./App.vue";
 import router from "./router";
-import Container from "./components/Container.vue";
+
+import ButtonStyle from "./components/ButtonStyle.vue";
 const app = createApp(App);
 
 app.use(createPinia());
 app.use(router);
-app.component("Container", Container);
+
+app.component("ButtonStyle", ButtonStyle);
 
 app.mount("#app");

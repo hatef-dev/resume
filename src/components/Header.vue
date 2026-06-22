@@ -20,14 +20,7 @@
           <router-link to="/FAQ">FAQs</router-link>
         </li>
       </ul>
-      <div class="">
-        <router-link
-          to="/CreateCV"
-          class="bg-[#324E7B] text-white rounded-full w-[188px] h-[61px] flex justify-center items-center"
-        >
-          <span> Create your CV </span>
-        </router-link>
-      </div>
+      <ButtonStyle link="/CreateCV" type="default">Create your CV</ButtonStyle>
     </nav>
   </div>
 </template>
