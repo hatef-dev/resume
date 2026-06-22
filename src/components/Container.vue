@@ -12,27 +12,11 @@ export default {
   props: {
     maxWidth: {
       type: String,
-      default: "7xl",
+      default: "content",
       validator: (value) =>
-        [
-          "sm",
-          "md",
-          "lg",
-          "xl",
-          "2xl",
-          "3xl",
-          "4xl",
-          "5xl",
-          "6xl",
-          "7xl",
-          "full",
-          "none",
-        ].includes(value),
-    },
-    padding: {
-      type: String,
-      default: "default",
-      validator: (value) => ["none", "sm", "default", "lg"].includes(value),
+        ["sm", "md", "lg", "xl", "2xl", "3xl", "4xl", "5xl", "6xl", "7xl", "full", "none"].includes(
+          value,
+        ),
     },
     centered: {
       type: Boolean,
@@ -58,18 +42,11 @@ export default {
         "5xl": "max-w-5xl",
         "6xl": "max-w-6xl",
         "7xl": "max-w-7xl",
+        content: "max-w-[1212px]",
         full: "max-w-full",
         none: "",
       };
       classes.push(maxWClasses[props.maxWidth]);
-
-      const paddingClasses = {
-        none: "px-0",
-        sm: "px-4 sm:px-6",
-        default: "px-4 sm:px-6 lg:px-8",
-        lg: "px-6 sm:px-8 lg:px-12",
-      };
-      classes.push(paddingClasses[props.padding]);
 
       return classes.join(" ");
     });

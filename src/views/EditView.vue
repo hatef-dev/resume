@@ -1,5 +1,5 @@
 <template>
-  <Container>
+  <Container padding="lg">
     <div class="block grid-cols-3 gap-x-3 md:grid">
       <aside class="col-span-1 w-full overflow-hidden">
         <h3
