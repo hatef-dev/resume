@@ -143,13 +143,13 @@
 @media (min-width: 1280px) {
   .container {
     max-width: 1200px;
-    padding-inline: 32px;
+    padding-inline: 0px;
   }
 }
 
 @media (min-width: 1536px) {
   .container {
     max-width: 1400px;
-    padding-inline: 40px;
+    padding-inline: 0px;
   }
 }
