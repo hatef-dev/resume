@@ -4,7 +4,12 @@
       <!-- Logo -->
       <div>
         <a class="group inline-flex min-h-11 items-center" href="/">
-          <img src="/tinycv_logo.webp" class="w-28 h-full" />
+          <img
+            v-if="themeStore.isDark"
+            src="../assets/logoWhite.svg"
+            class="w-28 h-full text-white"
+          />
+          <img v-else src="../assets/logoBlack.svg" class="w-28 h-full" />
         </a>
       </div>
 

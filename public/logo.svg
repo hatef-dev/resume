@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 182.5 84">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke: #000;
+      }
+
+      .cls-1, .cls-2 {
+        fill: none;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-3 {
+        fill: #111d32;
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        stroke: #111d32;
+      }
+    </style>
+  </defs>
+  <g id="Layer_9" data-name="Layer 9">
+    <polygon class="cls-3" points="181.5 20 181.5 20.5 181 20 181.5 20"/>
+    <rect class="cls-3" x="100.5" width="20" height="20"/>
+    <rect class="cls-3" x="162.5" y="63" width="20" height="20"/>
+    <rect class="cls-1" x="55" y=".5" width="20" height="15"/>
+    <polygon class="cls-1" points="90.5 49.5 90.5 69.5 75 69.5 75 83.5 55 83.5 55 69.5 .5 69.5 .5 49.5 14 49.5 14 35.5 34 35.5 34 49.5 90.5 49.5"/>
+    <polygon class="cls-2" points="89.5 15.5 89.5 35.5 75 35.5 75 49.5 55 49.5 55 35.5 .5 35.5 .5 15.5 14 15.5 14 .5 34 .5 34 15.5 89.5 15.5"/>
+    <rect class="cls-1" x="14" y="69.5" width="20" height="14"/>
+    <polygon class="cls-3" points="161.5 0 161.5 .5 161 0 161.5 0"/>
+    <polygon class="cls-3" points="179.5 21.5 179.5 41 159.99 61 120.01 61 120.01 84 100.5 84 100.5 43 120.01 23 120.01 41 159.99 41 159.99 21 121.96 21 141.46 1 159.51 1 179.5 21.5"/>
+  </g>
+</svg>
