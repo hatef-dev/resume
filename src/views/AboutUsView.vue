@@ -1,7 +1,7 @@
 <template>
   <div class="absolute -left-24 -top-8">
     <div
-      class="w-[480px] h-[471px] rounded-full bg-[#324E7B]/20 blur-[62px] shadow-[0_4px_62px_50px_rgba(50,78,123,0.2)]"
+      class="w-[480px] h-[471px] rounded-full bg-[#324E7B]/20 dark:bg-[#324E7B]/30 blur-[62px] shadow-[0_4px_62px_50px_rgba(50,78,123,0.2)]"
     ></div>
   </div>
   <Header />
@@ -14,11 +14,13 @@
       <div class="flex flex-col gap-y-9 max-w-2xl text-center lg:text-left">
         <div class="flex flex-col gap-y-2">
           <h1
-            class="poppins-bold text-black text-3xl sm:text-4xl lg:text-5xl leading-tight lg:leading-[72px]"
+            class="poppins-bold text-black dark:text-white dark:text-white text-3xl sm:text-4xl lg:text-5xl leading-tight lg:leading-[72px]"
           >
             We're on a Mission to Help You <span class="text-[#324E7B]">Stand Out</span>
           </h1>
-          <p class="poppins-medium text-base text-[#747474] mt-4">
+          <p
+            class="poppins-medium text-base text-[#747474] dark:text-gray-400 dark:text-gray-400 mt-4"
+          >
             Founded to empower job seekers worldwide, our tool combines beautiful design with
             intuitive functionality to help you craft the perfect resume and land your dream job.
           </p>
@@ -40,8 +42,10 @@
   <section class="container mt-24 lg:mt-[150px] px-4 lg:px-0">
     <div class="flex flex-col lg:flex-row gap-12 lg:gap-[100px] items-center">
       <div class="flex-1">
-        <h2 class="poppins-bold text-2xl lg:text-3xl text-black mb-4">Our Story</h2>
-        <div class="space-y-4 poppins-medium text-base text-[#747474] leading-relaxed">
+        <h2 class="poppins-bold text-2xl lg:text-3xl text-black dark:text-white mb-4">Our Story</h2>
+        <div
+          class="space-y-4 poppins-medium text-base text-[#747474] dark:text-gray-400 leading-relaxed"
+        >
           <p>
             It all started in 2023 when our founder, a hiring manager, realized how many brilliant
             candidates were being overlooked because of poorly formatted resumes.
@@ -56,7 +60,7 @@
           </p>
         </div>
       </div>
-      <div class="flex-1 bg-[#F8F9FB] rounded-2xl p-8 lg:p-12">
+      <div class="flex-1 bg-[#F8F9FB] dark:bg-gray-900 rounded-2xl p-8 lg:p-12">
         <div class="flex items-start gap-4">
           <div
             class="w-12 h-12 bg-[#324E7B]/10 rounded-full flex items-center justify-center shrink-0"
@@ -64,8 +68,10 @@
             <span class="poppins-bold text-[#324E7B] text-2xl">10k+</span>
           </div>
           <div>
-            <h3 class="poppins-semibold text-lg text-black">Resumes Created</h3>
-            <p class="poppins-medium text-[#747474] text-sm">And counting every day</p>
+            <h3 class="poppins-semibold text-lg text-black dark:text-white">Resumes Created</h3>
+            <p class="poppins-medium text-[#747474] dark:text-gray-400 text-sm">
+              And counting every day
+            </p>
           </div>
         </div>
       </div>
@@ -75,7 +81,9 @@
   <!-- Mission & Vision Section -->
   <section class="container mt-24 lg:mt-[150px] px-4 lg:px-0">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-      <div class="bg-white rounded-2xl border border-gray-100 p-8 lg:p-10 shadow-sm">
+      <div
+        class="bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 p-8 lg:p-10 shadow-sm"
+      >
         <div class="w-14 h-14 bg-[#324E7B]/10 rounded-xl flex items-center justify-center mb-6">
           <svg class="w-7 h-7 text-[#324E7B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path
@@ -86,13 +94,17 @@
             ></path>
           </svg>
         </div>
-        <h2 class="poppins-bold text-xl lg:text-2xl text-black mb-4">Our Mission</h2>
-        <p class="poppins-medium text-base text-[#747474] leading-relaxed">
+        <h2 class="poppins-bold text-xl lg:text-2xl text-black dark:text-white mb-4">
+          Our Mission
+        </h2>
+        <p class="poppins-medium text-base text-[#747474] dark:text-gray-400 leading-relaxed">
           To empower every job seeker with the tools they need to present their best professional
           selves and achieve their career goals.
         </p>
       </div>
-      <div class="bg-white rounded-2xl border border-gray-100 p-8 lg:p-10 shadow-sm">
+      <div
+        class="bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 p-8 lg:p-10 shadow-sm"
+      >
         <div class="w-14 h-14 bg-[#324E7B]/10 rounded-xl flex items-center justify-center mb-6">
           <svg class="w-7 h-7 text-[#324E7B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path
@@ -109,8 +121,8 @@
             ></path>
           </svg>
         </div>
-        <h2 class="poppins-bold text-xl lg:text-2xl text-black mb-4">Our Vision</h2>
-        <p class="poppins-medium text-base text-[#747474] leading-relaxed">
+        <h2 class="poppins-bold text-xl lg:text-2xl text-black dark:text-white mb-4">Our Vision</h2>
+        <p class="poppins-medium text-base text-[#747474] dark:text-gray-400 leading-relaxed">
           To become the global standard for professional resume creation, helping millions of people
           unlock their career potential.
         </p>
@@ -121,58 +133,60 @@
   <!-- Core Values Section -->
   <section class="container mt-24 lg:mt-[150px] px-4 lg:px-0">
     <div class="text-center mb-12 lg:mb-16">
-      <h2 class="poppins-bold text-2xl lg:text-3xl text-black mb-4">Our Core Values</h2>
-      <p class="poppins-medium text-base text-[#747474] max-w-2xl mx-auto">
+      <h2 class="poppins-bold text-2xl lg:text-3xl text-black dark:text-white mb-4">
+        Our Core Values
+      </h2>
+      <p class="poppins-medium text-base text-[#747474] dark:text-gray-400 max-w-2xl mx-auto">
         The principles that guide everything we do and how we serve our users.
       </p>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
       <div
-        class="bg-white rounded-2xl border border-gray-100 p-8 shadow-sm hover:shadow-md transition-shadow"
+        class="bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 p-8 shadow-sm hover:shadow-md transition-shadow"
       >
-        <h3 class="poppins-semibold text-lg text-black mb-3">User First</h3>
-        <p class="poppins-medium text-sm text-[#747474] leading-relaxed">
+        <h3 class="poppins-semibold text-lg text-black dark:text-white mb-3">User First</h3>
+        <p class="poppins-medium text-sm text-[#747474] dark:text-gray-400 leading-relaxed">
           We design everything with our users' needs and success as our top priority.
         </p>
       </div>
       <div
-        class="bg-white rounded-2xl border border-gray-100 p-8 shadow-sm hover:shadow-md transition-shadow"
+        class="bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 p-8 shadow-sm hover:shadow-md transition-shadow"
       >
-        <h3 class="poppins-semibold text-lg text-black mb-3">Quality</h3>
-        <p class="poppins-medium text-sm text-[#747474] leading-relaxed">
+        <h3 class="poppins-semibold text-lg text-black dark:text-white mb-3">Quality</h3>
+        <p class="poppins-medium text-sm text-[#747474] dark:text-gray-400 leading-relaxed">
           We're committed to delivering exceptional tools and templates that meet professional
           standards.
         </p>
       </div>
       <div
-        class="bg-white rounded-2xl border border-gray-100 p-8 shadow-sm hover:shadow-md transition-shadow"
+        class="bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 p-8 shadow-sm hover:shadow-md transition-shadow"
       >
-        <h3 class="poppins-semibold text-lg text-black mb-3">Innovation</h3>
-        <p class="poppins-medium text-sm text-[#747474] leading-relaxed">
+        <h3 class="poppins-semibold text-lg text-black dark:text-white mb-3">Innovation</h3>
+        <p class="poppins-medium text-sm text-[#747474] dark:text-gray-400 leading-relaxed">
           We continuously improve and innovate to provide the best resume building experience.
         </p>
       </div>
       <div
-        class="bg-white rounded-2xl border border-gray-100 p-8 shadow-sm hover:shadow-md transition-shadow"
+        class="bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 p-8 shadow-sm hover:shadow-md transition-shadow"
       >
-        <h3 class="poppins-semibold text-lg text-black mb-3">Accessibility</h3>
-        <p class="poppins-medium text-sm text-[#747474] leading-relaxed">
+        <h3 class="poppins-semibold text-lg text-black dark:text-white mb-3">Accessibility</h3>
+        <p class="poppins-medium text-sm text-[#747474] dark:text-gray-400 leading-relaxed">
           We believe professional resume tools should be accessible to everyone, everywhere.
         </p>
       </div>
       <div
-        class="bg-white rounded-2xl border border-gray-100 p-8 shadow-sm hover:shadow-md transition-shadow"
+        class="bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 p-8 shadow-sm hover:shadow-md transition-shadow"
       >
-        <h3 class="poppins-semibold text-lg text-black mb-3">Trust</h3>
-        <p class="poppins-medium text-sm text-[#747474] leading-relaxed">
+        <h3 class="poppins-semibold text-lg text-black dark:text-white mb-3">Trust</h3>
+        <p class="poppins-medium text-sm text-[#747474] dark:text-gray-400 leading-relaxed">
           We respect your privacy and security, and never share your personal information.
         </p>
       </div>
       <div
-        class="bg-white rounded-2xl border border-gray-100 p-8 shadow-sm hover:shadow-md transition-shadow"
+        class="bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 p-8 shadow-sm hover:shadow-md transition-shadow"
       >
-        <h3 class="poppins-semibold text-lg text-black mb-3">Support</h3>
-        <p class="poppins-medium text-sm text-[#747474] leading-relaxed">
+        <h3 class="poppins-semibold text-lg text-black dark:text-white mb-3">Support</h3>
+        <p class="poppins-medium text-sm text-[#747474] dark:text-gray-400 leading-relaxed">
           We're here to help you every step of the way with responsive customer support.
         </p>
       </div>
@@ -182,24 +196,28 @@
   <!-- Team Members Section -->
   <section class="container mt-24 lg:mt-[150px] px-4 lg:px-0">
     <div class="text-center mb-12 lg:mb-16">
-      <h2 class="poppins-bold text-2xl lg:text-3xl text-black mb-4">Meet Our Team</h2>
-      <p class="poppins-medium text-base text-[#747474] max-w-2xl mx-auto">
+      <h2 class="poppins-bold text-2xl lg:text-3xl text-black dark:text-white mb-4">
+        Meet Our Team
+      </h2>
+      <p class="poppins-medium text-base text-[#747474] dark:text-gray-400 max-w-2xl mx-auto">
         A passionate group of designers, developers, and career experts dedicated to your success.
       </p>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-      <div class="bg-white rounded-2xl border border-gray-100 p-6 text-center shadow-sm">
+      <div
+        class="bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 p-6 text-center shadow-sm"
+      >
         <div
-          class="w-24 h-24 mx-auto mb-4 bg-[#F8F9FB] rounded-full flex items-center justify-center"
+          class="w-24 h-24 mx-auto mb-4 bg-[#F8F9FB] dark:bg-gray-900 rounded-full flex items-center justify-center"
         >
           <span class="poppins-bold text-2xl text-[#324E7B]">A</span>
         </div>
-        <h3 class="poppins-semibold text-lg text-black mb-1">Alex Morgan</h3>
-        <p class="poppins-medium text-sm text-[#747474] mb-3">CEO & Founder</p>
+        <h3 class="poppins-semibold text-lg text-black dark:text-white mb-1">Alex Morgan</h3>
+        <p class="poppins-medium text-sm text-[#747474] dark:text-gray-400 mb-3">CEO & Founder</p>
         <div class="flex justify-center gap-3">
           <a
             href="#"
-            class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#324E7B]/10 hover:text-[#324E7B] transition-colors"
+            class="w-8 h-8 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-[#324E7B]/10 hover:text-[#324E7B] transition-colors"
           >
             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
               <path
@@ -209,7 +227,7 @@
           </a>
           <a
             href="#"
-            class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#324E7B]/10 hover:text-[#324E7B] transition-colors"
+            class="w-8 h-8 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-[#324E7B]/10 hover:text-[#324E7B] transition-colors"
           >
             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
               <path
@@ -219,18 +237,20 @@
           </a>
         </div>
       </div>
-      <div class="bg-white rounded-2xl border border-gray-100 p-6 text-center shadow-sm">
+      <div
+        class="bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 p-6 text-center shadow-sm"
+      >
         <div
-          class="w-24 h-24 mx-auto mb-4 bg-[#F8F9FB] rounded-full flex items-center justify-center"
+          class="w-24 h-24 mx-auto mb-4 bg-[#F8F9FB] dark:bg-gray-900 rounded-full flex items-center justify-center"
         >
           <span class="poppins-bold text-2xl text-[#324E7B]">S</span>
         </div>
-        <h3 class="poppins-semibold text-lg text-black mb-1">Sarah Chen</h3>
-        <p class="poppins-medium text-sm text-[#747474] mb-3">Lead Designer</p>
+        <h3 class="poppins-semibold text-lg text-black dark:text-white mb-1">Sarah Chen</h3>
+        <p class="poppins-medium text-sm text-[#747474] dark:text-gray-400 mb-3">Lead Designer</p>
         <div class="flex justify-center gap-3">
           <a
             href="#"
-            class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#324E7B]/10 hover:text-[#324E7B] transition-colors"
+            class="w-8 h-8 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-[#324E7B]/10 hover:text-[#324E7B] transition-colors"
           >
             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
               <path
@@ -240,7 +260,7 @@
           </a>
           <a
             href="#"
-            class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#324E7B]/10 hover:text-[#324E7B] transition-colors"
+            class="w-8 h-8 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-[#324E7B]/10 hover:text-[#324E7B] transition-colors"
           >
             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
               <path
@@ -250,18 +270,20 @@
           </a>
         </div>
       </div>
-      <div class="bg-white rounded-2xl border border-gray-100 p-6 text-center shadow-sm">
+      <div
+        class="bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 p-6 text-center shadow-sm"
+      >
         <div
-          class="w-24 h-24 mx-auto mb-4 bg-[#F8F9FB] rounded-full flex items-center justify-center"
+          class="w-24 h-24 mx-auto mb-4 bg-[#F8F9FB] dark:bg-gray-900 rounded-full flex items-center justify-center"
         >
           <span class="poppins-bold text-2xl text-[#324E7B]">M</span>
         </div>
-        <h3 class="poppins-semibold text-lg text-black mb-1">Michael Kim</h3>
-        <p class="poppins-medium text-sm text-[#747474] mb-3">Lead Developer</p>
+        <h3 class="poppins-semibold text-lg text-black dark:text-white mb-1">Michael Kim</h3>
+        <p class="poppins-medium text-sm text-[#747474] dark:text-gray-400 mb-3">Lead Developer</p>
         <div class="flex justify-center gap-3">
           <a
             href="#"
-            class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#324E7B]/10 hover:text-[#324E7B] transition-colors"
+            class="w-8 h-8 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-[#324E7B]/10 hover:text-[#324E7B] transition-colors"
           >
             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
               <path
@@ -271,7 +293,7 @@
           </a>
           <a
             href="#"
-            class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#324E7B]/10 hover:text-[#324E7B] transition-colors"
+            class="w-8 h-8 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-[#324E7B]/10 hover:text-[#324E7B] transition-colors"
           >
             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
               <path
@@ -281,18 +303,20 @@
           </a>
         </div>
       </div>
-      <div class="bg-white rounded-2xl border border-gray-100 p-6 text-center shadow-sm">
+      <div
+        class="bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 p-6 text-center shadow-sm"
+      >
         <div
-          class="w-24 h-24 mx-auto mb-4 bg-[#F8F9FB] rounded-full flex items-center justify-center"
+          class="w-24 h-24 mx-auto mb-4 bg-[#F8F9FB] dark:bg-gray-900 rounded-full flex items-center justify-center"
         >
           <span class="poppins-bold text-2xl text-[#324E7B]">E</span>
         </div>
-        <h3 class="poppins-semibold text-lg text-black mb-1">Emily Rodriguez</h3>
-        <p class="poppins-medium text-sm text-[#747474] mb-3">Career Coach</p>
+        <h3 class="poppins-semibold text-lg text-black dark:text-white mb-1">Emily Rodriguez</h3>
+        <p class="poppins-medium text-sm text-[#747474] dark:text-gray-400 mb-3">Career Coach</p>
         <div class="flex justify-center gap-3">
           <a
             href="#"
-            class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#324E7B]/10 hover:text-[#324E7B] transition-colors"
+            class="w-8 h-8 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-[#324E7B]/10 hover:text-[#324E7B] transition-colors"
           >
             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
               <path
@@ -302,7 +326,7 @@
           </a>
           <a
             href="#"
-            class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#324E7B]/10 hover:text-[#324E7B] transition-colors"
+            class="w-8 h-8 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-[#324E7B]/10 hover:text-[#324E7B] transition-colors"
           >
             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
               <path
@@ -318,8 +342,10 @@
   <!-- Why Choose Us Section -->
   <section class="container mt-24 lg:mt-[150px] px-4 lg:px-0">
     <div class="text-center mb-12 lg:mb-16">
-      <h2 class="poppins-bold text-2xl lg:text-3xl text-black mb-4">Why Choose Us</h2>
-      <p class="poppins-medium text-base text-[#747474] max-w-2xl mx-auto">
+      <h2 class="poppins-bold text-2xl lg:text-3xl text-black dark:text-white mb-4">
+        Why Choose Us
+      </h2>
+      <p class="poppins-medium text-base text-[#747474] dark:text-gray-400 max-w-2xl mx-auto">
         What makes our resume builder stand out from the rest.
       </p>
     </div>
@@ -336,8 +362,8 @@
           </svg>
         </div>
         <div class="flex-1">
-          <h3 class="poppins-semibold text-lg text-black mb-2">Easy to Use</h3>
-          <p class="poppins-medium text-sm text-[#747474] leading-relaxed">
+          <h3 class="poppins-semibold text-lg text-black dark:text-white mb-2">Easy to Use</h3>
+          <p class="poppins-medium text-sm text-[#747474] dark:text-gray-400 leading-relaxed">
             No design or technical skills required. Just fill in your information and let our tool
             handle the rest.
           </p>
@@ -355,8 +381,10 @@
           </svg>
         </div>
         <div class="flex-1">
-          <h3 class="poppins-semibold text-lg text-black mb-2">Professional Templates</h3>
-          <p class="poppins-medium text-sm text-[#747474] leading-relaxed">
+          <h3 class="poppins-semibold text-lg text-black dark:text-white mb-2">
+            Professional Templates
+          </h3>
+          <p class="poppins-medium text-sm text-[#747474] dark:text-gray-400 leading-relaxed">
             Curated, ATS-friendly templates designed by career experts to help you get noticed.
           </p>
         </div>
@@ -373,8 +401,10 @@
           </svg>
         </div>
         <div class="flex-1">
-          <h3 class="poppins-semibold text-lg text-black mb-2">Instant Downloads</h3>
-          <p class="poppins-medium text-sm text-[#747474] leading-relaxed">
+          <h3 class="poppins-semibold text-lg text-black dark:text-white mb-2">
+            Instant Downloads
+          </h3>
+          <p class="poppins-medium text-sm text-[#747474] dark:text-gray-400 leading-relaxed">
             Download your resume as a high-quality PDF ready to send to employers in seconds.
           </p>
         </div>
@@ -391,8 +421,8 @@
           </svg>
         </div>
         <div class="flex-1">
-          <h3 class="poppins-semibold text-lg text-black mb-2">Customizable</h3>
-          <p class="poppins-medium text-sm text-[#747474] leading-relaxed">
+          <h3 class="poppins-semibold text-lg text-black dark:text-white mb-2">Customizable</h3>
+          <p class="poppins-medium text-sm text-[#747474] dark:text-gray-400 leading-relaxed">
             Personalize every section of your resume to match your unique style and experience.
           </p>
         </div>
@@ -409,8 +439,8 @@
           </svg>
         </div>
         <div class="flex-1">
-          <h3 class="poppins-semibold text-lg text-black mb-2">Expert Tips</h3>
-          <p class="poppins-medium text-sm text-[#747474] leading-relaxed">
+          <h3 class="poppins-semibold text-lg text-black dark:text-white mb-2">Expert Tips</h3>
+          <p class="poppins-medium text-sm text-[#747474] dark:text-gray-400 leading-relaxed">
             Built-in guidance and suggestions from career experts to help you write compelling
             content.
           </p>
@@ -428,8 +458,8 @@
           </svg>
         </div>
         <div class="flex-1">
-          <h3 class="poppins-semibold text-lg text-black mb-2">Secure & Private</h3>
-          <p class="poppins-medium text-sm text-[#747474] leading-relaxed">
+          <h3 class="poppins-semibold text-lg text-black dark:text-white mb-2">Secure & Private</h3>
+          <p class="poppins-medium text-sm text-[#747474] dark:text-gray-400 leading-relaxed">
             Your data is safe with us. We never share your personal information with third parties.
           </p>
         </div>
@@ -439,7 +469,7 @@
 
   <!-- Statistics Section -->
   <section class="container mt-24 lg:mt-[150px] px-4 lg:px-0">
-    <div class="bg-[#324E7B] rounded-3xl p-8 lg:p-16 text-center">
+    <div class="bg-[#324E7B] rounded-3xl p-8 lg:p-16 text-center dark:bg-[#324E7B]/30">
       <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
         <div>
           <div class="poppins-bold text-4xl lg:text-5xl text-white mb-2">10k+</div>
@@ -463,11 +493,11 @@
 
   <!-- Call to Action Section -->
   <section class="container mt-24 lg:mt-[150px] mb-24 lg:mb-[150px] px-4 lg:px-0">
-    <div class="bg-[#F8F9FB] rounded-3xl p-8 lg:p-16 text-center">
-      <h2 class="poppins-bold text-2xl lg:text-3xl text-black mb-4">
+    <div class="bg-[#F8F9FB] dark:bg-gray-900 rounded-3xl p-8 lg:p-16 text-center">
+      <h2 class="poppins-bold text-2xl lg:text-3xl text-black dark:text-white mb-4">
         Ready to Create Your <span class="text-[#324E7B]">Perfect Resume?</span>
       </h2>
-      <p class="poppins-medium text-base text-[#747474] max-w-2xl mx-auto mb-8">
+      <p class="poppins-medium text-base text-[#747474] dark:text-gray-400 max-w-2xl mx-auto mb-8">
         Join thousands of satisfied users and take the first step towards landing your dream job
         today.
       </p>

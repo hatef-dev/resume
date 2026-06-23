@@ -2,9 +2,9 @@
   <div class="">
     <router-link
       :to="link"
-      class="rounded-full px-6 md:px-[35px] py-4 md:py-[18px] flex justify-center items-center poppins-semibold text-sm 2xl:text-base"
+      class="rounded-full px-6 md:px-[35px] py-4 md:py-[18px] flex justify-center items-center poppins-semibold text-sm 2xl:text-base transition-colors"
       :class="{
-        'bg-transparent text-black border-2 border-[#324E7B]': type === 'white',
+        'bg-transparent text-black dark:text-white border-2 border-[#324E7B]': type === 'white',
         'bg-[#324E7B] text-white': type === 'default',
       }"
     >

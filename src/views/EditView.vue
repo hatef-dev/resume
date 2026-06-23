@@ -3,16 +3,16 @@
     <div class="block grid-cols-3 gap-x-3 md:grid">
       <aside class="col-span-1 w-full overflow-hidden">
         <h3
-          class="whitespace-nowrap text-[0.95rem] font-semibold uppercase tracking-[0.12em] text-slate-800"
+          class="whitespace-nowrap text-[0.95rem] font-semibold uppercase tracking-[0.12em] text-slate-800 dark:text-slate-200"
         >
           Markdown source
         </h3>
-        <div class="overflow-y-auto rounded-2xl bg-[#F8F9FB]">
+        <div class="overflow-y-auto rounded-2xl bg-[#F8F9FB] dark:bg-gray-900">
           <textarea
             v-model="markdownSource"
             name="markdownSource"
             id=""
-            class="w-full border-0 focus:outline-none min-h-[32rem] flex-1 resize-none bg-transparent px-5 py-5 font-mono text-[0.98rem] leading-7 text-slate-900 outline-none"
+            class="w-full border-0 focus:outline-none min-h-[32rem] flex-1 resize-none bg-transparent px-5 py-5 font-mono text-[0.98rem] leading-7 text-slate-900 dark:text-slate-100 outline-none"
           ></textarea>
         </div>
       </aside>

@@ -1,7 +1,7 @@
 <template>
   <div class="absolute -left-24 -top-8">
     <div
-      class="w-[480px] h-[471px] rounded-full bg-[#324E7B]/20 blur-[62px] shadow-[0_4px_62px_50px_rgba(50,78,123,0.2)]"
+      class="w-[480px] h-[471px] rounded-full bg-[#324E7B]/20 dark:bg-[#324E7B]/30 blur-[62px] shadow-[0_4px_62px_50px_rgba(50,78,123,0.2)]"
     ></div>
   </div>
   <Header />
@@ -11,11 +11,11 @@
     <div class="flex flex-col gap-y-9 max-w-2xl text-center lg:text-left">
       <div class="flex flex-col gap-y-2">
         <h1
-          class="poppins-bold text-black text-3xl sm:text-4xl lg:text-5xl leading-tight lg:leading-[72px]"
+          class="poppins-bold text-black dark:text-white text-3xl sm:text-4xl lg:text-5xl leading-tight lg:leading-[72px]"
         >
           Your Next Opportunity Starts With a <span class="text-[#324E7B]">Better Resume</span>
         </h1>
-        <p class="poppins-medium text-base text-[#747474] mt-4">
+        <p class="poppins-medium text-base text-[#747474] dark:text-gray-400 mt-4">
           Build a polished, job-winning resume with ease. Choose from professionally designed
           templates, customize every section, and download a professional PDF ready to share with
           employers.
