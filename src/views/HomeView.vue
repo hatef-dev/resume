@@ -29,7 +29,7 @@
     <img
       src="@/assets/illustrate.svg"
       alt="Resume illustration"
-      class="w-full max-w-md lg:max-w-none order-first lg:order-last"
+      class="w-[480px] max-w-md lg:max-w-none order-first lg:order-last"
     />
   </div>
 </template>
