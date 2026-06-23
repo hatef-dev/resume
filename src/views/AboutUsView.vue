@@ -29,9 +29,9 @@
         </div>
       </div>
       <img
-        src="@/assets/illustrate.svg"
+        src="@/assets/AboutUs.svg"
         alt="About us illustration"
-        class="w-full max-w-md lg:max-w-none order-first lg:order-last"
+        class="w-[480px] max-w-md lg:max-w-none order-first lg:order-last"
       />
     </div>
   </section>
