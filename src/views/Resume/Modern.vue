@@ -19,11 +19,11 @@
                 <div v-for="(section, i) in sections" :key="i" class="w-full flex">
                   <div class="" v-if="section.type === 'header'">
                     <div class="flex flex-col gap-y-2 poppins leading-[0.94] padding-indicator">
-                      <div class="uppercase">
-                        <h3 class="text-2xl font-light tracking-[0.3em] text-black">
+                      <div class="uppercase red-hat-display">
+                        <h3 class="text-2xl font-boldtracking-[0.3em] text-black">
                           {{ firstName }}
                         </h3>
-                        <h1 class="text-6xl font-light tracking-[0.1em] text-black">
+                        <h1 class="text-6xl tracking-[0.05em] text-black">
                           {{ lastName }}
                         </h1>
                       </div>
@@ -147,7 +147,7 @@
                           <div class="flex items-center justify-between mb-2">
                             <div class="flex gap-x-2 items-center">
                               <h3 class="font-semibold text-sm">{{ item.title }}</h3>
-                              <span class="w-1 h-1 rounded-full resumeBackGround"></span>
+                              <span class="w-1 h-1 rounded-full bg-gray-800"></span>
                               <p class="text-[14px]">{{ item.company }}</p>
                             </div>
                             <p
