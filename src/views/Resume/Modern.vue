@@ -120,7 +120,7 @@
               </aside>
               <aside class="w-2/5">
                 <div class="flex justify-center items-center">
-                  <img :src="perview" alt="" class="w-48 h-48 object-cover rounded-xl grayscale" />
+                  <img :src="preview" alt="" class="w-48 h-48 object-cover rounded-xl grayscale" />
                 </div>
 
                 <!-- Education & Selected Projects & Skill -->
@@ -279,6 +279,8 @@ import DownloadPdf from "@/components/DownloadPdf.vue";
 import Cover from "@/components/Cover.vue";
 import { mapWritableState } from "pinia";
 import useUploadStore from "@/stores/uploadCover";
+import defaultResumeImage from "@/assets/resume.jpg";
+
 export default {
   name: "Modern",
   data() {
@@ -286,6 +288,7 @@ export default {
       firstName: "",
       lastName: "",
       sections: [],
+      currentObjectUrl: null,
     };
   },
   components: {
@@ -295,12 +298,39 @@ export default {
   },
   computed: {
     ...mapWritableState(useUploadStore, ["image"]),
-    perview() {
-      return this.image ? URL.createObjectURL(this.image) : "";
+    preview() {
+      // Clean up previous object URL to avoid memory leaks
+      if (this.currentObjectUrl) {
+        URL.revokeObjectURL(this.currentObjectUrl);
+        this.currentObjectUrl = null;
+      }
+
+      if (this.image) {
+        this.currentObjectUrl = URL.createObjectURL(this.image);
+        return this.currentObjectUrl;
+      }
+
+      return defaultResumeImage;
     },
   },
+  watch: {
+    sections(newSections) {
+      if (newSections && newSections[0]) {
+        this.spaceBetweenFirstNameAndLastName(newSections[0].title);
+      }
+    },
+  },
+  beforeUnmount() {
+    // Clean up object URL when component is destroyed
+    if (this.currentObjectUrl) {
+      URL.revokeObjectURL(this.currentObjectUrl);
+    }
+  },
   mounted() {
-    this.spaceBetweenFirstNameAndLastName(this.sections[0].title);
+    // Only call if sections already exist
+    if (this.sections && this.sections[0]) {
+      this.spaceBetweenFirstNameAndLastName(this.sections[0].title);
+    }
   },
   methods: {
     spaceBetweenFirstNameAndLastName(title) {
