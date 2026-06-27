@@ -57,50 +57,51 @@
                   {{ section.content.join("\n") }}
                 </p>
               </div>
-              <div v-if="section.type === 'section' && section.title !== 'Summary'">
-                <div class="flex flex-col gap-y-1">
-                  <h2
-                    class="shrink-0 font-bold uppercase tracking-[0.22em] padding-indicator resumeColor text-xl"
-                  >
-                    {{ section.title }}
-                  </h2>
-
-                  <div style="" class="w-full h-0.5 border-t-2 border-black mb-2"></div>
-                </div>
-              </div>
-              <!-- EXPERIENCE -->
               <div
                 v-if="
-                  section.title === 'Experience' ||
-                  section.title === 'Selected Projects' ||
-                  section.title === 'Education'
+                  section.type === 'section' &&
+                  section.title !== 'Summary' &&
+                  section.title === 'Experience'
                 "
-                class="flex flex-col gap-y-2"
               >
-                <div v-for="(item, i) in section.items" :key="i" class="">
-                  <div>
-                    <div class="flex items-center justify-between mb-2">
-                      <div class="flex gap-x-2 items-center">
-                        <h3 class="font-semibold text-sm">{{ item.title }}</h3>
-                        <span class="w-1 h-1 rounded-full resumeBackGround"></span>
-                        <p class="text-[14px]">{{ item.company }}</p>
-                      </div>
-                      <p
-                        v-if="item.period"
-                        class="shrink-0 resumeColor/80 text-right font-semibold text-black-800 uppercase tracking-[0.11em] text-xs"
-                      >
-                        {{ item.period }}
-                      </p>
-                    </div>
-                    <span class="text-sm py-2 resumeGrayText italic">{{ item.location }}</span>
-
-                    <ul
-                      class="space-y-1.5 pl-5 list-outside list-disc text-sm leading-relaxed font-semibold"
+                <div>
+                  <div class="flex flex-col gap-y-1">
+                    <h2
+                      class="shrink-0 font-bold uppercase tracking-[0.22em] padding-indicator resumeColor text-xl"
                     >
-                      <li v-for="(point, j) in item.highlights" :key="j" class="pl-1 font-normal">
-                        {{ point }}
-                      </li>
-                    </ul>
+                      {{ section.title }}
+                    </h2>
+
+                    <div style="" class="w-full h-0.5 border-t-2 border-black mb-2"></div>
+                  </div>
+                </div>
+                <!-- EXPERIENCE -->
+                <div class="flex flex-col gap-y-2">
+                  <div v-for="(item, i) in section.items" :key="i" class="">
+                    <div>
+                      <div class="flex items-center justify-between mb-2">
+                        <div class="flex gap-x-2 items-center">
+                          <h3 class="font-semibold text-sm">{{ item.title }}</h3>
+                          <span class="w-1 h-1 rounded-full resumeBackGround"></span>
+                          <p class="text-[14px]">{{ item.company }}</p>
+                        </div>
+                        <p
+                          v-if="item.period"
+                          class="shrink-0 resumeColor/80 text-right font-semibold text-black-800 uppercase tracking-[0.11em] text-xs"
+                        >
+                          {{ item.period }}
+                        </p>
+                      </div>
+                      <span class="text-sm py-2 resumeGrayText italic">{{ item.location }}</span>
+
+                      <ul
+                        class="space-y-1.5 pl-5 list-outside list-disc text-sm leading-relaxed font-semibold"
+                      >
+                        <li v-for="(point, j) in item.highlights" :key="j" class="pl-1 font-normal">
+                          {{ point }}
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
