@@ -12,7 +12,7 @@ const router = createRouter({
     {
       path: "/edit",
       name: "edit",
-      component: () => import("../views/Resume/Minimal.vue"),
+      component: () => import("../views/Resume/Modern.vue"),
     },
     {
       path: "/AboutUs",
