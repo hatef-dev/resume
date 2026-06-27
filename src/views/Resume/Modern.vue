@@ -122,6 +122,149 @@
                 <div class="flex justify-center items-center">
                   <img :src="perview" alt="" class="w-48 h-48 object-cover rounded-xl grayscale" />
                 </div>
+
+                <!-- Education & Selected Projects & Skill -->
+                <div v-for="(section, i) in sections" :key="i" class="w-full flex mt-5">
+                  <!-- Selected Projects -->
+                  <div
+                    class="w-full"
+                    v-if="section.type === 'section' && section.title === 'Selected Projects'"
+                  >
+                    <!-- Selected Projects Title-->
+                    <div>
+                      <div class="flex flex-col gap-y-1">
+                        <h2
+                          class="shrink-0 font-bold uppercase tracking-[0.22em] padding-indicator resumeColor text-xl"
+                        >
+                          {{ section.title }}
+                        </h2>
+
+                        <div style="" class="w-full h-0.5 border-t-2 border-black mb-2"></div>
+                      </div>
+                    </div>
+                    <div v-for="(item, i) in section.items" :key="i" class="">
+                      <div>
+                        <div class="flex items-center justify-between mb-2">
+                          <div class="flex gap-x-2 items-center">
+                            <h3 class="font-semibold text-sm">{{ item.title }}</h3>
+                            <span class="w-1 h-1 rounded-full resumeBackGround"></span>
+                            <p class="text-[14px]">{{ item.company }}</p>
+                          </div>
+                          <p
+                            v-if="item.period"
+                            class="shrink-0 resumeColor/80 text-right font-semibold text-green-800 uppercase tracking-[0.11em] text-xs"
+                          >
+                            {{ item.period }}
+                          </p>
+                        </div>
+                        <span class="text-sm py-2 resumeGrayText italic">{{ item.location }}</span>
+
+                        <ul
+                          class="space-y-1.5 pl-5 list-outside list-disc text-sm leading-relaxed font-semibold"
+                        >
+                          <li
+                            v-for="(point, j) in item.highlights"
+                            :key="j"
+                            class="pl-1 font-normal"
+                          >
+                            {{ point }}
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- EDUCATION -->
+                  <div
+                    class="w-full"
+                    v-if="section.type === 'section' && section.title === 'Education'"
+                  >
+                    <!-- EDUCATION Title-->
+                    <div>
+                      <div class="flex flex-col gap-y-1">
+                        <h2
+                          class="shrink-0 font-bold uppercase tracking-[0.22em] padding-indicator resumeColor text-xl"
+                        >
+                          {{ section.title }}
+                        </h2>
+
+                        <div style="" class="w-full h-0.5 border-t-2 border-black mb-2"></div>
+                      </div>
+                    </div>
+                    <!-- EDUCATION Content -->
+                    <div class="flex flex-col gap-y-2">
+                      <div v-for="(item, i) in section.items" :key="i" class="">
+                        <div>
+                          <div class="flex items-center justify-between mb-2">
+                            <div class="flex flex-col gap-y-2">
+                              <h3 class="font-semibold text-xl">{{ item.title }}</h3>
+                              <div class="flex justify-between gap-x-2 items-center w-full">
+                                <p class="text-[14px]">{{ item.company }}</p>
+                                <p
+                                  v-if="item.period"
+                                  class="resumeColor/80 text-right font-semibold text-black-800 uppercase tracking-[0.11em] text-xs"
+                                >
+                                  {{ item.period }}
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <span class="text-sm py-2 resumeGrayText italic">{{
+                            item.location
+                          }}</span>
+
+                          <ul
+                            class="space-y-1.5 pl-5 list-outside list-disc text-sm leading-relaxed font-semibold"
+                          >
+                            <li
+                              v-for="(point, j) in item.highlights"
+                              :key="j"
+                              class="pl-1 font-normal"
+                            >
+                              {{ point }}
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- SKILLS -->
+                  <div
+                    v-if="section.type === 'section' && section.title === 'Skills'"
+                    class="w-full"
+                  >
+                    <!-- Skills Title-->
+                    <div>
+                      <div class="flex flex-col gap-y-1">
+                        <h2
+                          class="shrink-0 font-bold uppercase tracking-[0.22em] padding-indicator resumeColor text-xl"
+                        >
+                          {{ section.title }}
+                        </h2>
+
+                        <div style="" class="w-full h-0.5 border-t-2 border-black mb-2"></div>
+                      </div>
+                    </div>
+                    <!-- Skills Content -->
+                    <div v-if="section.title === 'Skills'" class="">
+                      <div class="space-y-2">
+                        <div
+                          v-for="(skills, category, i) in section.skills"
+                          :key="i"
+                          class="flex flex-wrap gap-2"
+                        >
+                          <span class="font-bold text-base">{{ category }}:</span>
+                          <span
+                            v-for="(skill, j) in skills"
+                            :key="j"
+                            class="text-sm resumeGrayText"
+                          >
+                            {{ skill }}{{ j < skills.length - 1 ? "," : "" }}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </aside>
             </div>
           </div>
