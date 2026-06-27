@@ -12,17 +12,12 @@ const router = createRouter({
     {
       path: "/edit",
       name: "edit",
-      component: () => import("../views/EditView.vue"),
+      component: () => import("../views/Resume/Minimal.vue"),
     },
     {
       path: "/AboutUs",
       name: "aboutus",
       component: () => import("../views/AboutUsView.vue"),
-    },
-    {
-      path: "/CreateCV",
-      name: "createcv",
-      component: () => import("../views/EditView.vue"),
     },
     {
       path: "/Templates",

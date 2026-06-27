@@ -128,7 +128,7 @@
 import DownloadPdf from "@/components/DownloadPdf.vue";
 import MarkDown from "@/components/MarkDown.vue";
 export default {
-  name: "EditView",
+  name: "Minimal",
   data() {
     return {
       sections: [],

@@ -1,5 +1,5 @@
 <template>
-  <button @click="downloadPDF">Download PDF</button>
+  <button @click="downloadPDF" class="dark:text-white">Download PDF</button>
 </template>
 <script>
 export default {
