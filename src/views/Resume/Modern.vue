@@ -7,106 +7,123 @@
         >
           Markdown source
         </h3>
-        <MarkDown @sections="(val) => (sections = val)" />
+        <MarkDown @sections="(val) => (sections = val)" class="mb-10" />
+        <Cover />
       </aside>
       <aside class="col-span-2">
         <DownloadPdf :sections="sections" />
-        <div id="resume-preview" ref="preview" class="bg-white p-10 rounded-xl">
-          <div v-for="(section, i) in sections" :key="i" class="w-full flex gap-x-10">
-            <aside class="w-3/5">
-              <div class="" v-if="section.type === 'header'">
-                <div
-                  class="flex flex-col gap-y-1 nunito-sans font-semibold leading-[0.94] text-4xl padding-indicator"
-                >
-                  <div class="uppercase">
-                    <h3 class="text-3xl font-extrabold tracking-[0.16em]">{{ firstName }}</h3>
-                    <h1 class="text-5xl font-bold tracking-[0.036em]">{{ lastName }}</h1>
-                  </div>
-                  <p
-                    class="font-semibold mt-4 text-base uppercase tracking-[0.2em] padding-indicator"
-                  >
-                    {{ section.role }}
-                  </p>
-                  <div class="flex gap-4 mt-2 text-sm resumeGrayText">
-                    <span>{{ section.contacts.address }}</span>
-                    <a class="underline resumeColor" :href="`mailto:${section.contacts.email}`">
-                      {{ section.contacts.email }}
-                    </a>
-                    <a
-                      class="underline resumeColor"
-                      :href="section.contacts.linkedin"
-                      target="_blank"
-                      rel="noopener noreferrer"
+        <div class="rounded-xl overflow-hidden">
+          <div id="resume-preview" ref="preview" class="bg-[#cacbd0] p-10">
+            <div class="flex gap-x-10">
+              <aside class="w-3/5">
+                <div v-for="(section, i) in sections" :key="i" class="w-full flex">
+                  <div class="" v-if="section.type === 'header'">
+                    <div
+                      class="flex flex-col gap-y-1 poppins font-semibold leading-[0.94] text-4xl padding-indicator"
                     >
-                      LinkedIn
-                    </a>
-                    <a
-                      class="underline resumeColor"
-                      :href="section.contacts.github"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      GitHub
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <!-- SECTION -->
-              <div v-if="section.type === 'section'">
-                <p class="text-sm my-14" v-if="section.content.length">
-                  {{ section.content.join("\n") }}
-                </p>
-              </div>
-              <div
-                v-if="
-                  section.type === 'section' &&
-                  section.title !== 'Summary' &&
-                  section.title === 'Experience'
-                "
-              >
-                <div>
-                  <div class="flex flex-col gap-y-1">
-                    <h2
-                      class="shrink-0 font-bold uppercase tracking-[0.22em] padding-indicator resumeColor text-xl"
-                    >
-                      {{ section.title }}
-                    </h2>
-
-                    <div style="" class="w-full h-0.5 border-t-2 border-black mb-2"></div>
-                  </div>
-                </div>
-                <!-- EXPERIENCE -->
-                <div class="flex flex-col gap-y-2">
-                  <div v-for="(item, i) in section.items" :key="i" class="">
-                    <div>
-                      <div class="flex items-center justify-between mb-2">
-                        <div class="flex gap-x-2 items-center">
-                          <h3 class="font-semibold text-sm">{{ item.title }}</h3>
-                          <span class="w-1 h-1 rounded-full resumeBackGround"></span>
-                          <p class="text-[14px]">{{ item.company }}</p>
-                        </div>
-                        <p
-                          v-if="item.period"
-                          class="shrink-0 resumeColor/80 text-right font-semibold text-black-800 uppercase tracking-[0.11em] text-xs"
-                        >
-                          {{ item.period }}
-                        </p>
+                      <div class="uppercase">
+                        <h3 class="text-3xl font-semibold tracking-[0.16em]">{{ firstName }}</h3>
+                        <h1 class="text-5xl font-semibold tracking-[0.036em]">{{ lastName }}</h1>
                       </div>
-                      <span class="text-sm py-2 resumeGrayText italic">{{ item.location }}</span>
-
-                      <ul
-                        class="space-y-1.5 pl-5 list-outside list-disc text-sm leading-relaxed font-semibold"
+                      <p
+                        class="font-semibold mt-4 text-base uppercase tracking-[0.2em] padding-indicator"
                       >
-                        <li v-for="(point, j) in item.highlights" :key="j" class="pl-1 font-normal">
-                          {{ point }}
-                        </li>
-                      </ul>
+                        {{ section.role }}
+                      </p>
+                      <div class="flex flex-col gap-4 mt-2 text-sm resumeGrayText">
+                        <span>{{ section.contacts.address }}</span>
+                        <a class="underline resumeColor" :href="`mailto:${section.contacts.email}`">
+                          {{ section.contacts.email }}
+                        </a>
+                        <a
+                          class="underline resumeColor"
+                          :href="section.contacts.linkedin"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          LinkedIn
+                        </a>
+                        <a
+                          class="underline resumeColor"
+                          :href="section.contacts.github"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          GitHub
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- SECTION -->
+                  <div v-if="section.type === 'section'">
+                    <p class="text-sm my-14" v-if="section.content.length">
+                      {{ section.content.join("\n") }}
+                    </p>
+                  </div>
+                  <!-- EXPERIENCE -->
+                  <div
+                    class="w-full"
+                    v-if="
+                      section.type === 'section' &&
+                      section.title !== 'Summary' &&
+                      section.title === 'Experience'
+                    "
+                  >
+                    <div>
+                      <div class="flex flex-col gap-y-1">
+                        <h2
+                          class="shrink-0 font-bold uppercase tracking-[0.22em] padding-indicator resumeColor text-xl"
+                        >
+                          {{ section.title }}
+                        </h2>
+
+                        <div style="" class="w-full h-0.5 border-t-2 border-black mb-2"></div>
+                      </div>
+                    </div>
+                    <!-- EXPERIENCE -->
+                    <div class="flex flex-col gap-y-2">
+                      <div v-for="(item, i) in section.items" :key="i" class="">
+                        <div>
+                          <div class="flex items-center justify-between mb-2">
+                            <div class="flex gap-x-2 items-center">
+                              <h3 class="font-semibold text-sm">{{ item.title }}</h3>
+                              <span class="w-1 h-1 rounded-full resumeBackGround"></span>
+                              <p class="text-[14px]">{{ item.company }}</p>
+                            </div>
+                            <p
+                              v-if="item.period"
+                              class="shrink-0 resumeColor/80 text-right font-semibold text-black-800 uppercase tracking-[0.11em] text-xs"
+                            >
+                              {{ item.period }}
+                            </p>
+                          </div>
+                          <span class="text-sm py-2 resumeGrayText italic">{{
+                            item.location
+                          }}</span>
+
+                          <ul
+                            class="space-y-1.5 pl-5 list-outside list-disc text-sm leading-relaxed font-semibold"
+                          >
+                            <li
+                              v-for="(point, j) in item.highlights"
+                              :key="j"
+                              class="pl-1 font-normal"
+                            >
+                              {{ point }}
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </aside>
-            <aside class="w-2/5">ddd</aside>
+              </aside>
+              <aside class="w-2/5">
+                <div class="flex justify-center items-center">
+                  <img :src="perview" alt="" class="w-48 h-48 object-cover rounded-xl grayscale" />
+                </div>
+              </aside>
+            </div>
           </div>
         </div>
       </aside>
@@ -116,6 +133,9 @@
 <script>
 import MarkDown from "@/components/MarkDown.vue";
 import DownloadPdf from "@/components/DownloadPdf.vue";
+import Cover from "@/components/Cover.vue";
+import { mapWritableState } from "pinia";
+import useUploadStore from "@/stores/uploadCover";
 export default {
   name: "Modern",
   data() {
@@ -128,6 +148,13 @@ export default {
   components: {
     MarkDown,
     DownloadPdf,
+    Cover,
+  },
+  computed: {
+    ...mapWritableState(useUploadStore, ["image"]),
+    perview() {
+      return this.image ? URL.createObjectURL(this.image) : "";
+    },
   },
   mounted() {
     this.spaceBetweenFirstNameAndLastName(this.sections[0].title);

@@ -29,8 +29,23 @@ export default {
           <style>${styles}</style>
           <style>
             @media print {
-              @page { margin: 0; }
-              body { margin: 0; }
+              * {
+          -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+}
+@page {
+  margin: 0;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: auto;
+}
+#resume-preview {
+  width: 210mm;
+  min-height: 297mm;
+}
             }
           </style>
         </head>
@@ -51,3 +66,5 @@ export default {
   },
 };
 </script>
+
+<style></style>
