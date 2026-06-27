@@ -26,7 +26,7 @@
       <p class="text-lg font-medium text-white mb-2">Drag and drop your song here</p>
       <p class="text-sm text-neutral-400 mb-4">or click to browse files</p>
       <p class="text-sm text-white mb-4">
-        {{ image ? "" : "please upload a file with jpeg format only" }}
+        {{ image ? "" : "please upload a file with jpeg or png format only" }}
       </p>
 
       <p class="text-xs text-neutral-500 mt-4">{{ messages }}</p>
@@ -34,7 +34,7 @@
         <ButtonStyle class="w-1/2" @click="triggerFileInput"> Choose File </ButtonStyle>
       </div>
       <!-- Hidden file input -->
-      <input ref="fileInput" type="file" accept="audio/*" class="hidden" />
+      <input ref="fileInput" type="file" accept="image/jpeg,image/png" class="hidden" />
     </div>
     <div class="flex justify-center items-center" v-else>
       <p class="text-2xl font-bold text-green-400 mb-4">
@@ -48,7 +48,6 @@
 import { mapWritableState } from "pinia";
 ("firebase/storage");
 import useUploadStore from "@/stores/uploadCover";
-import ButtonStyle from "./ButtonStyle.vue";
 export default {
   name: "UploadCover",
   props: ["messages"],
@@ -64,7 +63,7 @@ export default {
     async handleDrop(e) {
       this.isDragging = false;
       const file = e.dataTransfer.files[0];
-      if (file.type === "image/jpeg") {
+      if (file.type === "image/jpeg" || file.type === "image/png") {
         this.image = file;
       } else {
         this.messages = "The Format should be jpeg format";
