@@ -18,16 +18,24 @@
             </div>
             <div v-for="(section, i) in sections" :key="i">
               <div v-if="section.type === 'header'">
-                <div class="px-3.5 font-semibold tracking-[0.2em] uppercase poiret-one mt-7">
-                  <h1 class="text-5xl">
-                    {{ firstName }}
-                  </h1>
-                  <h1 class="text-5xl">{{ lastName }}</h1>
-                </div>
-                <div class="mt-4">
-                  <h2 class="text-base red-hat-display uppercase text-gray-500">
-                    {{ section.role }}
-                  </h2>
+                <div class="flex justify-between items-center">
+                  <div>
+                    <div class="px-3.5 font-semibold tracking-[0.2em] uppercase poiret-one mt-7">
+                      <h1 class="text-5xl">
+                        {{ firstName }}
+                      </h1>
+                      <h1 class="text-5xl">{{ lastName }}</h1>
+                    </div>
+                    <div class="mt-4">
+                      <h2 class="text-base red-hat-display uppercase text-gray-500">
+                        {{ section.role }}
+                      </h2>
+                    </div>
+                  </div>
+                  <div class="flex flex-col" dir="rtl">
+                    <h3 class="uppercase red-hat-display">Address</h3>
+                    <div class="w-16 h-1 bg-gray-800 rounded-full text-right mt-1"></div>
+                  </div>
                 </div>
                 <div class="mt-2 h-1 border-b border-gray-300 dark:border-gray-700"></div>
               </div>

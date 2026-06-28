@@ -16,7 +16,7 @@ export default {
     return {
       markdownSource: `# Hatef Sanati
 Full Stack Developer
-address: San Francisco, CA | email: hatef.sanati@example.com | linkedin: linkedin.com/in/hatef-sanati | github: github.com/hatef-dev
+address: San Francisco, CA | email: hatef.sanati@example.com | linkedin: linkedin.com/in/hatef-sanati | github: github.com/hatef-dev | phone: 555-123-4567
 
 ## Summary
 Product-minded engineer with a track record of shipping customer-facing software quickly, building internal leverage, and turning ambiguous ideas into reliable systems. Strong in frontend architecture, developer experience, and cross-functional execution.
@@ -85,6 +85,7 @@ Platforms: Vercel, AWS, Postgres, GitHub Actions
               email: "",
               linkedin: "",
               github: "",
+              phone: "",
             },
           };
 

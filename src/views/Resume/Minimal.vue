@@ -48,6 +48,9 @@
                 >
                   GitHub
                 </a>
+                <a class="underline resumeColor" :href="`tel:${section.contacts.phone}`">
+                  {{ section.contacts.phone }}
+                </a>
               </div>
             </div>
 
