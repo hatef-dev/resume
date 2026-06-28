@@ -121,14 +121,7 @@
                     </p>
                   </div>
                   <!-- EXPERIENCE -->
-                  <div
-                    class="w-full"
-                    v-if="
-                      section.type === 'section' &&
-                      section.title !== 'Summary' &&
-                      section.title === 'Experience'
-                    "
-                  >
+                  <div class="w-full" v-if="section.type === 'experience'">
                     <div>
                       <div class="flex flex-col gap-y-1">
                         <h2
@@ -186,10 +179,7 @@
                 <!-- Education & Selected Projects & Skill -->
                 <div v-for="(section, i) in sections" :key="i" class="w-full flex mt-6">
                   <!-- Selected Projects -->
-                  <div
-                    class="w-full"
-                    v-if="section.type === 'section' && section.title === 'Selected Projects'"
-                  >
+                  <div class="w-full" v-if="section.type === 'projects'">
                     <!-- Selected Projects Title-->
                     <div>
                       <div class="flex flex-col gap-y-1">
@@ -234,10 +224,7 @@
                     </div>
                   </div>
                   <!-- EDUCATION -->
-                  <div
-                    class="w-full"
-                    v-if="section.type === 'section' && section.title === 'Education'"
-                  >
+                  <div class="w-full" v-if="section.type === 'education'">
                     <!-- EDUCATION Title-->
                     <div>
                       <div class="flex flex-col gap-y-1">
@@ -288,10 +275,7 @@
                     </div>
                   </div>
                   <!-- SKILLS -->
-                  <div
-                    v-if="section.type === 'section' && section.title === 'Skills'"
-                    class="w-full"
-                  >
+                  <div v-if="section.type === 'skills'" class="w-full">
                     <!-- Skills Title-->
                     <div>
                       <div class="flex flex-col gap-y-1">
@@ -305,7 +289,7 @@
                       </div>
                     </div>
                     <!-- Skills Content -->
-                    <div v-if="section.title === 'Skills'" class="">
+                    <div v-if="section.type === 'skills'" class="">
                       <div class="space-y-2">
                         <div
                           v-for="(skills, category, i) in section.skills"

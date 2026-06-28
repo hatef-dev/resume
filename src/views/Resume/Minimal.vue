@@ -69,12 +69,12 @@
               <p v-if="section.content.length">{{ section.content.join("\n") }}</p>
             </div>
 
-            <!-- EXPERIENCE -->
+            <!-- EXPERIENCE, PROJECTS, EDUCATION -->
             <div
               v-if="
-                section.title === 'Experience' ||
-                section.title === 'Selected Projects' ||
-                section.title === 'Education'
+                section.type === 'experience' ||
+                section.type === 'projects' ||
+                section.type === 'education'
               "
               class="flex flex-col gap-y-2"
             >
@@ -106,7 +106,7 @@
               </div>
             </div>
 
-            <div v-if="section.title === 'Skills'" class="">
+            <div v-if="section.type === 'skills'" class="">
               <div class="space-y-2">
                 <div
                   v-for="(skills, category, i) in section.skills"
