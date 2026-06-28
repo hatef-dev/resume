@@ -12,12 +12,20 @@
       <aside class="col-span-2 relative">
         <DownloadPdf :sections="sections" />
         <div class="rounded-xl overflow-hidden">
-          <div id="resume-preview" ref="preview" class="bg-white p-10 relative">
-            <div class="relative">
-              <img src="../../assets/dot.png" class="w-28 h-28 absolute opacity-20 z-0" />
-            </div>
-            <div v-for="(section, i) in sections" :key="i">
-              <div v-if="section.type === 'header'">
+          <div
+            id="resume-preview"
+            ref="preview"
+            class="bg-white p-10 relative max-h-[297mm] overflow-y-hidden flex flex-col"
+          >
+            <!-- Dot image as absolute so it doesn't interfere with flex flow -->
+            <img
+              src="../../assets/dot.png"
+              class="w-28 h-28 absolute top-10 left-10 opacity-20 z-0"
+            />
+
+            <!-- Main content container that takes full height -->
+            <div v-for="(section, i) in sections" :key="i" class="flex-1 flex flex-col">
+              <div v-if="section.type === 'header'" class="flex-1 flex flex-col">
                 <div class="flex justify-between items-center">
                   <div>
                     <div class="px-3.5 font-semibold tracking-[0.2em] uppercase poiret-one mt-7">
@@ -33,14 +41,21 @@
                     </div>
                   </div>
                   <div class="flex flex-col gap-y-2" dir="rtl">
-                    <h3 class="uppercase red-hat-display">Address</h3>
-                    <div class="w-16 h-1 bg-gray-800 rounded-full text-right mt-1"></div>
+                    <div>
+                      <h3 class="uppercase red-hat-display">Address</h3>
+                      <div class="w-16 h-1 bg-gray-800 rounded-full text-right mt-1"></div>
+                    </div>
                     <div v-if="section.contacts.address">
                       {{ section.contacts.address }}
                     </div>
                   </div>
                 </div>
-                <div class="mt-2 h-1 border-b border-gray-300 dark:border-gray-700"></div>
+                <div class="mt-2 h-1 border-b border-gray-700"></div>
+                <!-- Grid with explicit min-height to make border go all way down -->
+                <div class="grid grid-cols-3 h-[250mm]">
+                  <div class="col-span-1 border-r border-black">dd</div>
+                  <div class="col-span-2"></div>
+                </div>
               </div>
             </div>
           </div>
@@ -92,3 +107,10 @@ export default {
   },
 };
 </script>
+
+<style>
+#resume-preview {
+  min-height: 297mm;
+  height: 100%;
+}
+</style>
