@@ -32,9 +32,12 @@
                       </h2>
                     </div>
                   </div>
-                  <div class="flex flex-col" dir="rtl">
+                  <div class="flex flex-col gap-y-2" dir="rtl">
                     <h3 class="uppercase red-hat-display">Address</h3>
                     <div class="w-16 h-1 bg-gray-800 rounded-full text-right mt-1"></div>
+                    <div v-if="section.contacts.address">
+                      {{ section.contacts.address }}
+                    </div>
                   </div>
                 </div>
                 <div class="mt-2 h-1 border-b border-gray-300 dark:border-gray-700"></div>
