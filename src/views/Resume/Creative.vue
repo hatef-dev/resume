@@ -18,10 +18,7 @@
             class="bg-white p-10 relative max-h-[297mm] overflow-y-hidden flex flex-col"
           >
             <!-- Dot image as absolute so it doesn't interfere with flex flow -->
-            <img
-              src="../../assets/dot.png"
-              class="w-28 h-28 absolute top-10 left-10 opacity-20 z-0"
-            />
+            <img :src="dotImage" class="w-28 h-28 absolute top-10 left-10 opacity-20 z-0" />
 
             <!-- Main content container class="flex-1 flex flex-col" takes full height -->
             <div v-for="(section, i) in sections" :key="i">
@@ -306,12 +303,11 @@
 <script>
 import DownloadPdf from "@/components/DownloadPdf.vue";
 import MarkDown from "@/components/MarkDown.vue";
-import dot from "@/assets/dot.png";
+import dotImage from "@/assets/dot.png";
 export default {
   components: {
     DownloadPdf,
     MarkDown,
-    dot,
   },
   name: "Creative",
   data() {
@@ -319,6 +315,7 @@ export default {
       firstName: "",
       lastName: "",
       sections: [],
+      dotImage,
     };
   },
   watch: {
