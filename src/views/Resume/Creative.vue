@@ -189,7 +189,7 @@
                   <!-- Summary -->
                   <div
                     v-if="section.type === 'summary'"
-                    class="mx-10 py-6 flex flex-col gap-y-2 border-b border-black"
+                    class="ml-10 py-6 flex flex-col gap-y-2 border-b border-black"
                   >
                     <h3 class="text-xl red-hat-display tracking-[0.1em] uppercase">
                       {{ section.title }}
@@ -200,7 +200,7 @@
                   </div>
                   <!-- Experience -->
                   <div
-                    class="mx-10 py-6 flex flex-col gap-y-2 border-b border-black"
+                    class="ml-10 py-6 flex flex-col gap-y-2 border-b border-black"
                     v-if="section.type === 'experience'"
                   >
                     <div class="">
@@ -248,7 +248,7 @@
                   </div>
                   <!-- Projects -->
                   <div
-                    class="mx-10 py-6 flex flex-col gap-y-2 border-b border-black"
+                    class="ml-10 py-6 flex flex-col gap-y-2 border-b border-black"
                     v-if="section.type === 'projects'"
                   >
                     <!-- Selected Projects Title-->
