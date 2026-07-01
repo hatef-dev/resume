@@ -213,6 +213,42 @@
                       </div>
                     </div>
                   </div>
+                  <div class="col-span-1" v-if="section.type === 'education'">
+                    <div class="mt-10">
+                      <div class="flex flex-col gap-y-8 col-span-1">
+                        <div class="flex flex-col gap-y-2">
+                          <h3
+                            class="text-xl font-semibold pb-2 text-white uppercase tracking-[0.2em] resumeColor padding-indicator"
+                          >
+                            {{ section.title }}
+                          </h3>
+                          <div class="flex gap-x-6">
+                            <div class="w-0.5 bg-white relative">
+                              <span
+                                class="absolute top-4 -left-3 w-6 h-6 bg-[#25262a] rounded-full flex justify-center items-center"
+                              >
+                                <span class="w-2 h-2 rounded-full bg-[#ff4c20]"></span>
+                              </span>
+                            </div>
+                            <div class="flex flex-col gap-y-4 w-full pr-10">
+                              <div v-for="(item, i) in section.items" :key="i" class="text-base">
+                                <div class="flex flex-col gap-y-2">
+                                  <h4 class="text-base font-semibold text-[#ff4c20]">
+                                    {{ item.title }}
+                                  </h4>
+
+                                  <div class="flex justify-between items-center w-full">
+                                    <span class="text-base text-white">{{ item.company }}</span>
+                                    <span class="text-sm text-white">{{ item.period }}</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </template>
               </div>
               <div class="w-1/2 flex flex-col gap-y-6">
@@ -298,7 +334,7 @@
                               <!-- Selected Projects -->
                               <div v-for="(item, i) in section.items" :key="i" class="">
                                 <div>
-                                  <div class="flex items-center justify-between mb-2">
+                                  <div class="flex flex-col mb-2">
                                     <div class="flex items-center gap-x-2">
                                       <h3 class="text-base text-[#ff4c20]">{{ item.title }}</h3>
                                       <span class="w-1 h-1 rounded-full bg-white"></span>
@@ -306,12 +342,12 @@
                                     </div>
                                     <p
                                       v-if="item.period"
-                                      class="shrink-0 text-white text-right font-semibold uppercase tracking-[0.11em] text-xs"
+                                      class="shrink-0 text-white font-semibold uppercase tracking-[0.11em] text-xs"
                                     >
                                       {{ item.period }}
                                     </p>
                                   </div>
-                                  <span class="text-sm py-2 resumeGrayText italic">{{
+                                  <span class="text-sm py-2 text-[#ff4c20] italic">{{
                                     item.location
                                   }}</span>
 
