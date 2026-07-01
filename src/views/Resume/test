@@ -1,0 +1,105 @@
+<div class="col-span-1" v-if="section.type === 'skills'">
+                    <div class="mt-10">
+                      <div class="flex flex-col gap-y-8 col-span-1">
+                        <div class="flex flex-col gap-y-2">
+                          <h3
+                            class="text-xl font-semibold pb-2 text-white uppercase tracking-[0.2em] resumeColor padding-indicator"
+                          >
+                            {{ section.title }}
+                          </h3>
+                          <div class="flex gap-x-6 items-stretch min-h-[100px]">
+                            <div class="w-1 bg-white relative">
+                              <span
+                                class="absolute top-4 -left-3 w-6 h-6 bg-[#25262a] rounded-full flex justify-center items-center"
+                              >
+                                <span class="w-2 h-2 rounded-full bg-[#ff4c20]"></span>
+                              </span>
+                            </div>
+                            <p
+                              class="text-white py-1 text-sm"
+                              v-for="(item, i) in section.content"
+                              :key="i"
+                            >
+                              {{ item }}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                  <div class="col-span-1" v-if="section.type === 'experience'">
+                  <div class="mt-10">
+                    <div class="flex flex-col gap-y-8 col-span-1">
+                      <div class="flex flex-col gap-y-2">
+                        <h3
+                          class="text-xl font-semibold pb-2 text-white uppercase tracking-[0.2em] resumeColor padding-indicator"
+                        >
+                          {{ section.title }}
+                        </h3>
+                        <div class="flex gap-x-6 items-stretch min-h-[100px]">
+                          <div class="w-1 bg-white relative">
+                            <span
+                              class="absolute top-4 -left-3 w-6 h-6 bg-[#25262a] rounded-full flex justify-center items-center"
+                            >
+                              <span class="w-2 h-2 rounded-full bg-[#ff4c20]"></span>
+                            </span>
+                          </div>
+                          <div class="flex flex-col gap-y-2">
+                            <div v-for="(item, i) in section.items" :key="i" class="">
+                              <div>
+                                <div class="flex items-center justify-between mb-2">
+                                  <div class="flex gap-x-2 items-center">
+                                    <h3 class="font-semibold text-sm text-[#ff4c20]">
+                                      {{ item.title }}
+                                    </h3>
+                                    <span class="w-1 h-1 rounded-full bg-white"></span>
+                                    <p class="text-[14px] text-white">{{ item.company }}</p>
+                                  </div>
+                                  <p
+                                    v-if="item.period"
+                                    class="shrink-0 text-[#ff4c20] text-right font-semibold text-black-800 uppercase tracking-[0.11em] text-xs"
+                                  >
+                                    {{ item.period }}
+                                  </p>
+                                </div>
+                                <span class="text-sm py-2 text-[#ff4c20] italic">{{
+                                  item.location
+                                }}</span>
+
+                                <ul
+                                  class="space-y-1.5 pl-5 list-outside list-disc text-sm leading-relaxed font-semibold"
+                                >
+                                  <li
+                                    v-for="(point, j) in item.highlights"
+                                    :key="j"
+                                    class="pl-1 font-normal text-white"
+                                  >
+                                    {{ point }}
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
