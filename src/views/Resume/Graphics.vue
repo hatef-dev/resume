@@ -17,10 +17,10 @@
             ref="preview"
             class="bg-[#25262a] relative max-h-[297mm] overflow-y-hidden flex flex-col"
           >
-            <div class="w-20 h-20 bg-[#ff4c20]"></div>
+            <div class="w-10 h-10 bg-[#ff4c20]"></div>
             <template v-for="(section, i) in sections" :key="i">
               <!--Header-->
-              <div v-if="section.type === 'header'" class="px-20 mb-24 relative">
+              <div v-if="section.type === 'header'" class="px-10 mb-24 relative">
                 <div
                   class="inline-flex text-[#ff4c20] flex-col bg-[#25262a] my-5 mx-10 z-20 relative"
                 >
@@ -32,7 +32,7 @@
                   >
                 </div>
                 <div class="absolute top-0 border-white border-2 w-32 h-72 z-10"></div>
-                <div class="absolute top-44 left-56">
+                <div class="absolute top-44 left-44">
                   <div class="flex flex-col gap-2 mt-2 text-[14px]">
                     <div class="flex gap-x-4">
                       <div v-if="section.contacts.phone" class="flex items-center gap-2">
@@ -136,7 +136,7 @@
                 </div>
               </div>
             </template>
-            <div class="flex gap-x-14 px-20">
+            <div class="flex gap-x-6 px-10">
               <div class="w-1/2 flex flex-col gap-y-6">
                 <template v-for="(section, i) in sections" :key="i">
                   <!--Summary-->
@@ -153,7 +153,7 @@
                             {{ section.title }}
                           </h3>
                           <div class="flex gap-x-6 items-stretch min-h-[100px]">
-                            <div class="w-1 bg-white relative">
+                            <div class="w-0.5 bg-white relative">
                               <span
                                 class="absolute top-4 -left-3 w-6 h-6 bg-[#25262a] rounded-full flex justify-center items-center"
                               >
@@ -182,20 +182,31 @@
                           >
                             {{ section.title }}
                           </h3>
-                          <div class="flex flex-col gap-y-2">
-                            <div
-                              v-for="(skills, category, i) in section.skills"
-                              :key="i"
-                              class="flex flex-wrap gap-2"
-                            >
-                              <span class="font-semibold text-sm">{{ category }}:</span>
+                          <div class="flex gap-x-6">
+                            <div class="w-0.5 bg-white relative">
                               <span
-                                v-for="(skill, j) in skills"
-                                :key="j"
-                                class="text-sm resumeGrayText"
+                                class="absolute top-4 -left-3 w-6 h-6 bg-[#25262a] rounded-full flex justify-center items-center"
                               >
-                                {{ skill }}{{ j < skills.length - 1 ? "," : "" }}
+                                <span class="w-2 h-2 rounded-full bg-[#ff4c20]"></span>
                               </span>
+                            </div>
+                            <div class="flex flex-col gap-y-4">
+                              <div
+                                v-for="(skills, category, i) in section.skills"
+                                :key="i"
+                                class="flex flex-wrap gap-2"
+                              >
+                                <span class="font-semibold text-sm text-[#ff4c20]"
+                                  >{{ category }}:</span
+                                >
+                                <span
+                                  v-for="(skill, j) in skills"
+                                  :key="j"
+                                  class="text-sm text-white"
+                                >
+                                  {{ skill }}{{ j < skills.length - 1 ? "," : "" }}
+                                </span>
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -216,7 +227,7 @@
                             {{ section.title }}
                           </h3>
                           <div class="flex gap-x-6 items-stretch min-h-[100px]">
-                            <div class="w-1 bg-white relative">
+                            <div class="w-0.5 bg-white relative">
                               <span
                                 class="absolute top-4 -left-3 w-6 h-6 bg-[#25262a] rounded-full flex justify-center items-center"
                               >
@@ -226,17 +237,17 @@
                             <div class="flex flex-col gap-y-2">
                               <div v-for="(item, i) in section.items" :key="i" class="">
                                 <div>
-                                  <div class="flex items-center justify-between mb-2">
+                                  <div class="flex flex-col gap-y-2 mb-2">
                                     <div class="flex gap-x-2 items-center">
                                       <h3 class="font-semibold text-sm text-[#ff4c20]">
                                         {{ item.title }}
                                       </h3>
-                                      <span class="w-1 h-1 rounded-full bg-white"></span>
+                                      <span class="w-0.5 h-1 rounded-full bg-white"></span>
                                       <p class="text-[14px] text-white">{{ item.company }}</p>
                                     </div>
                                     <p
                                       v-if="item.period"
-                                      class="shrink-0 text-[#ff4c20] text-right font-semibold text-black-800 uppercase tracking-[0.11em] text-xs"
+                                      class="text-white font-semibold text-black-800 uppercase tracking-[0.11em] text-xs"
                                     >
                                       {{ item.period }}
                                     </p>
