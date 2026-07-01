@@ -276,6 +276,65 @@
                     </div>
                   </div>
                 </template>
+                <template v-for="(section, i) in sections" :key="i">
+                  <div class="col-span-1" v-if="section.type === 'projects'">
+                    <div class="mt-10">
+                      <div class="flex flex-col gap-y-8 col-span-1">
+                        <div class="flex flex-col gap-y-2">
+                          <h3
+                            class="text-xl font-semibold pb-2 text-white uppercase tracking-[0.2em] resumeColor padding-indicator"
+                          >
+                            {{ section.title }}
+                          </h3>
+                          <div class="flex gap-x-6 items-stretch min-h-[100px]">
+                            <div class="w-0.5 bg-white relative">
+                              <span
+                                class="absolute top-4 -left-3 w-6 h-6 bg-[#25262a] rounded-full flex justify-center items-center"
+                              >
+                                <span class="w-2 h-2 rounded-full bg-[#ff4c20]"></span>
+                              </span>
+                            </div>
+                            <div class="flex flex-col gap-y-2">
+                              <!-- Selected Projects -->
+                              <div v-for="(item, i) in section.items" :key="i" class="">
+                                <div>
+                                  <div class="flex items-center justify-between mb-2">
+                                    <div class="flex items-center gap-x-2">
+                                      <h3 class="text-base text-[#ff4c20]">{{ item.title }}</h3>
+                                      <span class="w-1 h-1 rounded-full bg-white"></span>
+                                      <p class="text-[14px] text-white">{{ item.company }}</p>
+                                    </div>
+                                    <p
+                                      v-if="item.period"
+                                      class="shrink-0 text-white text-right font-semibold uppercase tracking-[0.11em] text-xs"
+                                    >
+                                      {{ item.period }}
+                                    </p>
+                                  </div>
+                                  <span class="text-sm py-2 resumeGrayText italic">{{
+                                    item.location
+                                  }}</span>
+
+                                  <ul
+                                    class="space-y-1.5 pl-5 list-outside list-disc text-sm leading-relaxed font-semibold"
+                                  >
+                                    <li
+                                      v-for="(point, j) in item.highlights"
+                                      :key="j"
+                                      class="pl-1 font-normal text-white"
+                                    >
+                                      {{ point }}
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </template>
               </div>
             </div>
           </div>
